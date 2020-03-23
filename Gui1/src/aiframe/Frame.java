@@ -1,16 +1,13 @@
 package aiframe;
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.text.SimpleDateFormat;
 import javax.imageio.ImageIO;
-import javax.swing.JToolBar;
-import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.applet.*;  
@@ -30,38 +27,26 @@ import java.awt.event.ActionListener;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.Calendar;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javafx.scene.image.*;
+import javafx.scene.paint.*; 
 import javax.swing.Timer;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import java.awt.Image;
 import java.awt.Color;
-import javax.swing.JSplitPane;
-import javax.swing.JLayeredPane;
-import javax.swing.JInternalFrame;
 import java.awt.Component;
-import javax.swing.Box;
-import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.Image;
 import java.time.format.DateTimeFormatter;  
-import java.time.LocalDateTime;  
-import javax.swing.DropMode;
+import java.time.LocalDateTime;
 import java.awt.Canvas;
-import javax.swing.JTextPane;
 import java.awt.TextField;
 import java.awt.Button;
-import javax.swing.JTabbedPane;
-import javax.swing.JLabel;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import javax.swing.event.AncestorListener;
 import javax.swing.event.AncestorEvent;
-import javax.swing.JToggleButton;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import javax.swing.JComboBox;
 import java.time.format.DateTimeFormatter;  
 import java.time.LocalDateTime;
 import java.time.*;
@@ -69,8 +54,8 @@ import javax.swing.*;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import javax.media.*;   
-import javax.swing.JFileChooser;
+import javax.media.*;
+
 import java.util.TimerTask;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
@@ -83,8 +68,6 @@ import java.net.URL;
 import javax.media.Manager;
 import javax.media.MediaLocator;
 import javax.media.Player;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 
 import javafx.scene.Scene; 
 import javafx.stage.Stage; 
@@ -119,7 +102,7 @@ import java.net.MalformedURLException;
 
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
-import javax.swing.SwingUtilities;
+
 import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
@@ -168,11 +151,20 @@ import aiframe.test.*;
 import aiframe.RefreshTask.*;
 //import aiframe.CameraPanel.*;
 import aiframe.graph;
+import aiframe.Frame;
+import aiframe.canvas;
+import aiframe.evddb.*;
+import aiframe.clock;
+import aiframe.cpuload;
+import aiframe.graph;
+import aiframe.radar.*;
+import aiframe.calender.*;
 
 
 
 
- 
+
+
 
 
 
@@ -205,11 +197,13 @@ public class Frame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	private JTextField textField_4;
+	private JTextField textField_5;
+	private JTextField textField_6;
+	private JTextField textField_7;
 	
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -235,6 +229,9 @@ public class Frame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		
+		
 		frame = new JFrame();
 		frame.getContentPane().setForeground(Color.BLACK);
 		frame.getContentPane().setBackground(Color.BLACK);
@@ -244,11 +241,30 @@ public class Frame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		// test c = new test();
+		new test().hello();
+		
+		//clock clockcall = new clock();
+		//clock.clock();
+		new clock().clock();
+		
+		new calender().calender();
+		
+	
+		//new graph().graph();
+		
+		new radar().radarmain();
+		
+		
+		
+		
+		
+	//	new cpuload().cpuload();
 		
 		txtCamera_2 = new JTextField();
 		txtCamera_2.setForeground(Color.YELLOW);
 		txtCamera_2.setEditable(false);
-		txtCamera_2.setText("RIGHT CAMERA");
+		txtCamera_2.setText("RIGHT CAMERA");           
 		txtCamera_2.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
 		txtCamera_2.setColumns(10);
 		txtCamera_2.setBounds(858, 346, 130, 20);
@@ -294,9 +310,15 @@ public class Frame {
 		txtCamera_1.setBorder(null);
 		txtCamera_1.setBackground(null);
 	
+		
+		
+		
+		
+		
+		
 		JTextField maindash = new JTextField();
 		maindash.setText("MAIN DASHBOARD");
-		maindash.setBounds(702, 22, 300, 29);
+		maindash.setBounds(750, 22, 300, 29);
 		frame.getContentPane().add(maindash);
 		maindash.setColumns(10);
 		    maindash.setForeground(Color.YELLOW);
@@ -307,7 +329,96 @@ public class Frame {
 			maindash.setBorder(null); 
 			
 			
+			
+			
+			Canvas canvas_4 = new Canvas();
+			
+			canvas_4.addMouseListener(new MouseAdapter() 
+			{
+				public void mouseClicked(MouseEvent e)
+				{
+					JFrame canvas_4frame = new JFrame("Camera 4");
+					canvas_4frame.pack();
+					canvas_4frame.getContentPane().setBackground(Color.WHITE);
+					canvas_4frame.setBounds(0, 0, 1200, 700);
+					canvas_4frame.setResizable(false);
+					canvas_4frame.setVisible(true);
+					Canvas canvas_4new = new Canvas();
+					canvas_4new.setBackground(Color.DARK_GRAY);
+					canvas_4frame.getContentPane().add(canvas_4new);
+					
+				}
+			});
+			canvas_4.setBackground(Color.DARK_GRAY);
+			canvas_4.setBounds(23, 374, 352, 272); 
 		
+			 Frame.frame.getContentPane().add(canvas_4);
+			
+			Canvas canvas_1 = new Canvas();
+			canvas_1.addMouseListener(new MouseAdapter() 
+			{
+				public void mouseClicked(MouseEvent e)
+				{
+					
+					JFrame canvas_1frame = new JFrame("Camera 1");
+					canvas_1frame.pack();
+					canvas_1frame.getContentPane().setBackground(Color.WHITE);
+					canvas_1frame.setBounds(0, 0, 1200, 700);
+					canvas_1frame.setResizable(false);
+					canvas_1frame.setVisible(true);
+					Canvas canvas_1new = new Canvas();
+					canvas_1new.setBackground(Color.DARK_GRAY);
+					canvas_1frame.getContentPane().add(canvas_1new);
+					
+				}
+			});
+			canvas_1.setBackground(Color.DARK_GRAY);
+			canvas_1.setBounds(739, 68, 352, 272);
+			Frame.frame.getContentPane().add(canvas_1);
+			
+			Canvas canvas_2 = new Canvas();
+			canvas_2.addMouseListener(new MouseAdapter() 
+			{
+				public void mouseClicked(MouseEvent e)
+				{
+					JFrame canvas_2frame = new JFrame("Camera 2");
+					canvas_2frame.pack();
+					canvas_2frame.getContentPane().setBackground(Color.WHITE);
+					canvas_2frame.setBounds(0, 0, 1200, 700);
+					canvas_2frame.setResizable(false);
+					canvas_2frame.setVisible(true);
+					Canvas canvas_2new = new Canvas();
+					canvas_2new.setBackground(Color.DARK_GRAY);
+					canvas_2frame.getContentPane().add(canvas_2new);
+					
+				}
+			});
+			canvas_2.setBackground(Color.DARK_GRAY);
+			canvas_2.setBounds(381, 68, 352, 272);
+			Frame.frame.getContentPane().add(canvas_2);
+			
+			
+			
+			Canvas canvas = new Canvas();
+			canvas.setBounds(23, 68, 352, 272);
+			canvas.addMouseListener(new MouseAdapter() 
+			{
+				public void mouseClicked(MouseEvent e)
+				{
+					JFrame canvasframe = new JFrame("Camera 0");
+					canvasframe.pack();
+					canvasframe.getContentPane().setBackground(Color.WHITE);
+					canvasframe.setBounds(0, 0, 1200, 700);
+					canvasframe.setResizable(false);
+					canvasframe.setVisible(true);
+					Canvas canvasnew = new Canvas();
+					canvasnew.setBackground(Color.DARK_GRAY);
+					canvasframe.getContentPane().add(canvasnew);
+					
+				}
+			});
+			canvas.setBackground(Color.DARK_GRAY);
+		    Frame.frame.getContentPane().add(canvas);
 		
 		Canvas canvas_3 = new Canvas();
 		
@@ -361,77 +472,129 @@ public class Frame {
 		camholder.setBounds(398, 284, 450, 400);
 	   camholder.setVisible(false);
 		
-		Canvas canvas_4 = new Canvas();
-		canvas_4.addMouseListener(new MouseAdapter() 
-		{
-			public void mouseClicked(MouseEvent e)
-			{
-				JFrame canvas_4frame = new JFrame("Camera 4");
-				canvas_4frame.pack();
-				canvas_4frame.getContentPane().setBackground(Color.WHITE);
-				canvas_4frame.setBounds(0, 0, 1200, 700);
-				canvas_4frame.setResizable(false);
-				canvas_4frame.setVisible(true);
-				Canvas canvas_4new = new Canvas();
-				canvas_4new.setBackground(Color.DARK_GRAY);
-				canvas_4frame.getContentPane().add(canvas_4new);
-				
-			}
-		});
-		canvas_4.setBackground(Color.DARK_GRAY);
-		canvas_4.setBounds(23, 374, 352, 272); 
-		frame.getContentPane().add(canvas_4);
+	   JTextPane dbdetails = new JTextPane();
+	   dbdetails.setBounds(1022, 469, 249, 177);
+	   dbdetails.setVisible(true);
+	   dbdetails.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+	   dbdetails.setBackground(null);
+	   dbdetails.setHighlighter(null);
+	   dbdetails.setEditable(false);
+	   dbdetails.setVisible(false);
+		frame.getContentPane().add(dbdetails);
 		
 		
-		Canvas canvas_1 = new Canvas();
-		canvas_1.addMouseListener(new MouseAdapter() 
-		{
-			public void mouseClicked(MouseEvent e)
-			{
-				
-				JFrame canvas_1frame = new JFrame("Camera 1");
-				canvas_1frame.pack();
-				canvas_1frame.getContentPane().setBackground(Color.WHITE);
-				canvas_1frame.setBounds(0, 0, 1200, 700);
-				canvas_1frame.setResizable(false);
-				canvas_1frame.setVisible(true);
-				Canvas canvas_1new = new Canvas();
-				canvas_1new.setBackground(Color.DARK_GRAY);
-				canvas_1frame.getContentPane().add(canvas_1new);
-				
-			}
-		});
-		canvas_1.setBackground(Color.DARK_GRAY);
-		canvas_1.setBounds(739, 68, 352, 272);
-		frame.getContentPane().add(canvas_1);
 		
-		Canvas canvas_2 = new Canvas();
-		canvas_2.addMouseListener(new MouseAdapter() 
-		{
-			public void mouseClicked(MouseEvent e)
-			{
-				JFrame canvas_2frame = new JFrame("Camera 2");
-				canvas_2frame.pack();
-				canvas_2frame.getContentPane().setBackground(Color.WHITE);
-				canvas_2frame.setBounds(0, 0, 1200, 700);
-				canvas_2frame.setResizable(false);
-				canvas_2frame.setVisible(true);
-				Canvas canvas_2new = new Canvas();
-				canvas_2new.setBackground(Color.DARK_GRAY);
-				canvas_2frame.getContentPane().add(canvas_2new);
-				
-			}
-		});
-		canvas_2.setBackground(Color.DARK_GRAY);
-		canvas_2.setBounds(381, 68, 352, 272);
-		frame.getContentPane().add(canvas_2);
+		 JTextPane logger = new JTextPane();
+		 logger.setBounds(1022, 469, 249, 177);
+		 logger.setVisible(true);
+		 logger.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+		 logger.setBackground(null);
+		 logger.setHighlighter(null);
+		 logger.setEditable(false);
+		 logger.setVisible(false);
+			frame.getContentPane().add(logger);
+		
+		
+		JTextField txtdb = new JTextField();
+		txtdb.setText("DATABASE DETAILS");
+		txtdb.setBounds(1059, 652, 173, 20);
+		txtdb.setColumns(10);
+		txtdb.setForeground(Color.YELLOW);
+		txtdb.setBackground(null);
+		txtdb.setEditable(false);
+		txtdb.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+		txtdb.setHighlighter( null );
+		txtdb.setBorder(null); 
+		txtdb.setVisible(false);
+	    frame.getContentPane().add(txtdb);
+	    
+	    
+	    JTextField txtlog = new JTextField();
+	    txtlog.setText("LOGGER");
+	    txtlog.setBounds(1113, 652, 130, 20);
+	    txtlog.setColumns(10);
+	    txtlog.setForeground(Color.YELLOW);
+	    txtlog.setBackground(null);
+	    txtlog.setEditable(false);
+	    txtlog.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+	    txtlog.setHighlighter( null );
+	    txtlog.setBorder(null); 
+	    txtlog.setVisible(false);
+	    frame.getContentPane().add(txtlog);
+	    
+	    
+	    JTextField txtsuspobj = new JTextField();
+	    txtsuspobj.setText("SUPICIOUS OBJECT");
+	    txtsuspobj.setBounds(130, 652, 160, 20);
+	    txtsuspobj.setColumns(10);
+	    txtsuspobj.setForeground(Color.YELLOW);
+	    txtsuspobj.setBackground(null);
+	    txtsuspobj.setEditable(false);
+	    txtsuspobj.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+	    txtsuspobj.setHighlighter( null );
+	    txtsuspobj.setBorder(null); 
+	    txtsuspobj.setVisible(false);
+	    frame.getContentPane().add(txtsuspobj);
+	    
+	    JTextField txtobj = new JTextField();
+	    txtobj.setText("OBJECT DETECTED");
+	    txtobj.setBounds(809, 652, 161, 20);
+	    txtobj.setColumns(10);
+	    txtobj.setForeground(Color.YELLOW);
+	    txtobj.setBackground(null);
+	    txtobj.setEditable(false);
+	    txtobj.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+	    txtobj.setHighlighter( null );
+	    txtobj.setBorder(null); 
+	    txtobj.setVisible(false);
+	    frame.getContentPane().add(txtobj);
+	    
+	    
+	    
+		JPanel object = new JPanel();
+		object.setBounds(763, 469 ,249 ,177);
+		object.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+		object.setBackground(null);
+		object.setVisible(false);
+		frame.getContentPane().add(object);
+		
 		
 	
+		
+		JPanel videoplay = new JPanel();
+		videoplay.setBounds(763, 469 ,249 ,177);
+		videoplay.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+		videoplay.setBackground(null);
+		videoplay.setVisible(false);
+		frame.getContentPane().add(videoplay);
+		
+		
+		  JTextField txtvideo = new JTextField();
+		  txtvideo.setText("PLAY VIDEO");
+		  txtvideo.setBounds(840, 652, 161, 20);
+		  txtvideo.setColumns(10);
+		  txtvideo.setForeground(Color.YELLOW);
+		  txtvideo.setBackground(null);
+		  txtvideo.setEditable(false);
+		  txtvideo.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+		  txtvideo.setHighlighter( null );
+		  txtvideo.setBorder(null); 
+		  txtvideo.setVisible(false);
+		    frame.getContentPane().add(txtvideo);
+		    
+		    
+		    JPanel suspobj = new JPanel();
+		    suspobj.setBounds(23, 377, 352, 272);
+		    suspobj.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+		    suspobj.setBackground(null);
+		    suspobj.setVisible(false);
+			frame.getContentPane().add(suspobj);
+		    
 		
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBorder(new LineBorder(new Color(225, 225, 225), 2));
 		
-		layeredPane.setBounds(970, 358, 126, 212);
+		layeredPane.setBounds(1145, 425, 126, 212);
 		layeredPane.setVisible(false);
 		
 		
@@ -522,39 +685,36 @@ public class Frame {
 		panel_5.setVisible(false);
 		 
 		
+		ImageIcon graph = new ImageIcon("graph.png");
 		
+
+		Image graphimg = new ImageIcon(this.getClass().getResource("/graph.png")).getImage();
+		Image gr = graphimg.getScaledInstance(400, 300,  java.awt.Image.SCALE_SMOOTH);
+		//ImageIcon newgraph = new ImageIcon(newimg);
+		JLabel graphhold=new JLabel();
+		graphhold.setIcon(new ImageIcon(gr));
+		graphhold.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+    	frame.getContentPane().add(graphhold);
+    	graphhold.setBackground(Color.BLACK);
+    	graphhold.setBounds(740, 374, 352, 272);
+    	graphhold.setVisible(true);
 		 
-		
-		Canvas canvas = new Canvas();
-		canvas.setBounds(23, 68, 352, 272);
-		canvas.addMouseListener(new MouseAdapter() 
-		{
-			public void mouseClicked(MouseEvent e)
-			{
-				JFrame canvasframe = new JFrame("Camera 0");
-				canvasframe.pack();
-				canvasframe.getContentPane().setBackground(Color.WHITE);
-				canvasframe.setBounds(0, 0, 1200, 700);
-				canvasframe.setResizable(false);
-				canvasframe.setVisible(true);
-				Canvas canvasnew = new Canvas();
-				canvasnew.setBackground(Color.DARK_GRAY);
-				canvasframe.getContentPane().add(canvasnew);
-				
-			}
-		});
-		canvas.setBackground(Color.DARK_GRAY);
-	    frame.getContentPane().add(canvas);
+    	//ImageIcon imageIcon = new ImageIcon("./img/imageName.png"); // load the image to a imageIcon
+    	//Image image = imageIcon.getImage(); // transform it 
+    	//Image newimg = image.getScaledInstance(120, 120,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+    	//imageIcon = new ImageIcon(newimg)
 		
 		
 		
 		
-		ImageIcon icon = new ImageIcon("C:\\Users\\hp\\Pictures\\radar.png");
-		JLabel radar=new JLabel(icon);
-    	frame.getContentPane().add(radar);
-    	radar.setBackground(Color.BLACK);
-		radar.setBounds(662, 63, 430, 229);
-	    radar.setVisible(false);
+    	//Image radarimg = new ImageIcon(this.getClass().getResource("/radar.png")).getImage();
+    	//JLabel radar=new JLabel(icon);
+		//radar.setIcon(new ImageIcon(radarimg));
+		//radar.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+    	//frame.getContentPane().add(radar);
+    	//radar.setBackground(Color.BLACK);
+		//radar.setBounds(662, 63, 430, 229);
+	    //radar.setVisible(false);
 	   
 	  /*  MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory();
 	    CanvasVideoSurface videoSurface = mediaPlayerFactory.newVideoSurface(radar);
@@ -613,161 +773,162 @@ public class Frame {
 		
 		*/
 	 
-	    
-		
-		
-		class DigitalClock extends Frame {
-
-		    
-		    {
-		        new DigitalClock();
-		    }
-
-		    public DigitalClock() {
-		        EventQueue.invokeLater(new Runnable() {
-		            @Override
-		            public void run() {
-		                try {
-		                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		                } catch (ClassNotFoundException ex) {
-		                } catch (InstantiationException ex) {
-		                } catch (IllegalAccessException ex) {
-		                } catch (UnsupportedLookAndFeelException ex) {
-		                }
-
-		               // JFrame clockframe = new JFrame("Test");
-		               // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		               // frame.getContentPane().setLayout(new BorderLayout());
-		                frame.getContentPane().add(new TestPane());
-		              //  frame.pack();
-		               // frame.setLocationRelativeTo(null);
-		               // frame.setVisible(true);
-		            }
-
-		        });
-		    }
-
-		     class TestPane extends JPanel {
-
-		        private DigitPane hour;
-		        private DigitPane min;
-		        private DigitPane second;
-		        private JLabel[] seperator;
-
-		        private int tick = 0;
-
-		        public TestPane() {
-		            setLayout(new GridBagLayout());
-
-		            hour = new DigitPane();
-		            min = new DigitPane();
-		            second = new DigitPane();
-		            seperator = new JLabel[]{new JLabel(":"), new JLabel(":")};
-
-		            add(hour);
-		            add(seperator[0]);
-		            add(min);
-		            add(seperator[1]);
-		            add(second);
-
-		            Timer timer = new Timer(500, new ActionListener() {
-		                @Override
-		                public void actionPerformed(ActionEvent e) {
-		                    Calendar cal = Calendar.getInstance();
-		                    hour.setValue(cal.get(Calendar.HOUR_OF_DAY));
-		                    min.setValue(cal.get(Calendar.MINUTE));
-		                    second.setValue(cal.get(Calendar.SECOND));
-
-		                    if (tick % 2 == 1) {
-		                        seperator[0].setText(" ");
-		                        seperator[1].setText(" ");
-		                    } else {
-		                        seperator[0].setText(":");
-		                        seperator[1].setText(":");
-		                    }
-		                    tick++;
-		                }
-		            });
-		            timer.setRepeats(true);
-		            timer.setCoalesce(true);
-		            timer.start();
-		        }
-
-		    }
-
-		     class DigitPane extends JPanel {
-
-		        private int value;
-
-		        @Override
-		        public Dimension getPreferredSize() {
-		            FontMetrics fm = getFontMetrics(getFont());
-		            return new Dimension(fm.stringWidth("00"), fm.getHeight());
-		        }
-
-		        public void setValue(int aValue) {
-		            if (value != aValue) {
-		                int old = value;
-		                value = aValue;
-		                firePropertyChange("value", old, value);
-		                repaint();
-		            }
-		        }
-
-		        public int getValue() {
-		            return value;
-		        }
-
-		        protected String pad(int value) {
-		            StringBuilder sb = new StringBuilder(String.valueOf(value));
-		            while (sb.length() < 2) {
-		                sb.insert(0, "0");
-		            }
-		            return sb.toString();
-		        }
-
-		        @Override
-		        protected void paintComponent(Graphics g) {
-		            super.paintComponent(g); 
-		            String text = pad(getValue());
-		            FontMetrics fm = getFontMetrics(g.getFont());
-		            int x = (getWidth() - fm.stringWidth(text)) / 2;
-		            int y = ((getHeight()- fm.getHeight()) / 2) + fm.getAscent();
-		            g.drawString(text, x, y);
-		        }        
-		    }    
-		}
-		 
-		  
-		{  JTextField  dateField= new JTextField();
-		  
-		   	frame.getContentPane().add( dateField);
-		   	dateField.setForeground(Color.YELLOW);
-		   	dateField.setBounds(1082, 22, 100, 40);
-		    dateField.setVisible(true);
-		    dateField.setEditable(false);
-		    dateField.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
-		    dateField.setColumns(10);
-		    dateField.setHighlighter( null );
-		    //dateField.setBorder(null);
-		    dateField.setBackground(null);
-		
-	     //  javax.swing.Timer t = new javax.swing.Timer(1000, new DateListener());
-	       // t.start();
-		
-	         
-		    
-	       
-	        	 
-	            Calendar now = Calendar.getInstance();
-	            int month = now.get(Calendar.MONTH);
-	            int day = now.get(Calendar.DAY_OF_MONTH);
-	            int year = now.get(Calendar.YEAR);
-	            dateField.setText("" + (month + 1) + "/" + day + "/" + year);
-	 
-	    	
-		}
+	   
 	
+		
+		
+		
+		
+		JButton msgbtn1 = new JButton("X");
+		msgbtn1.setBackground(null);
+		msgbtn1.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		msgbtn1.setForeground(Color.YELLOW);
+		msgbtn1.setBounds(773, 640, 138, 35);
+		msgbtn1.setVisible(false);
+		frame.getContentPane().add(msgbtn1);
+		
+		
+		JButton msgbtn2 = new JButton("X");
+		msgbtn2.setBackground(null);
+		msgbtn2.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		msgbtn2.setForeground(Color.YELLOW);
+		msgbtn2.setBounds(773, 600, 138, 35);
+		msgbtn2.setVisible(false);
+		frame.getContentPane().add(msgbtn2);
+		
+		
+		JButton msgbtn3 = new JButton("X");
+		msgbtn3.setBackground(null);
+		msgbtn3.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		msgbtn3.setForeground(Color.YELLOW);
+		msgbtn3.setBounds(773, 560, 138, 35);
+		msgbtn3.setVisible(false);
+		frame.getContentPane().add(msgbtn3);
+		
+		JButton msgbtn4 = new JButton("X");
+		msgbtn4.setBackground(null);
+		msgbtn4.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		msgbtn4.setForeground(Color.YELLOW);
+		msgbtn4.setBounds(773, 520, 138, 35);
+		msgbtn4.setVisible(false);
+		frame.getContentPane().add(msgbtn4);
+		
+		JButton msgbtn5 = new JButton("X");
+		msgbtn5.setBackground(null);
+		msgbtn5.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		msgbtn5.setForeground(Color.YELLOW);
+		msgbtn5.setBounds(773, 480, 138, 35);
+		msgbtn5.setVisible(false);
+		frame.getContentPane().add(msgbtn5);
+		
+		JButton msgbtn6 = new JButton("X");
+		msgbtn6.setBackground(null);
+		msgbtn6.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		msgbtn6.setForeground(Color.YELLOW);
+		msgbtn6.setBounds(773, 440, 138, 35);
+		msgbtn6.setVisible(false);
+		frame.getContentPane().add(msgbtn6);
+		
+		JButton msgbtn7 = new JButton("X");
+		msgbtn7.setBackground(null);
+		msgbtn7.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		msgbtn7.setForeground(Color.YELLOW);
+		msgbtn7.setBounds(773, 400, 138, 35);
+		msgbtn7.setVisible(false);
+		frame.getContentPane().add(msgbtn7);
+		
+		JButton msgbtn8 = new JButton("HOSPITAL");
+		msgbtn8.setBackground(null);
+		msgbtn8.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		msgbtn8.setForeground(Color.YELLOW);
+		msgbtn8.setBounds(773, 360, 138, 35);
+		msgbtn8.setVisible(false);
+		frame.getContentPane().add(msgbtn8);
+		
+		JButton msgbtn9 = new JButton("AMBULANCE");
+		msgbtn9.setBackground(null);
+		msgbtn9.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		msgbtn9.setForeground(Color.YELLOW);
+		msgbtn9.setBounds(773, 320, 138, 35);
+		msgbtn9.setVisible(false);
+		frame.getContentPane().add(msgbtn9);
+		
+		
+		
+		
+		JButton callbtn1 = new JButton("X");
+		callbtn1.setBackground(null);
+		callbtn1.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		callbtn1.setForeground(Color.YELLOW);
+		callbtn1.setBounds(920, 640, 138, 35);
+		callbtn1.setVisible(false);
+		frame.getContentPane().add(callbtn1);
+		
+		
+		JButton callbtn2 = new JButton("X");
+		callbtn2.setBackground(null);
+		callbtn2.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		callbtn2.setForeground(Color.YELLOW);
+		callbtn2.setBounds(920, 600, 138, 35);
+		callbtn2.setVisible(false);
+		frame.getContentPane().add(callbtn2);
+		
+		
+		JButton callbtn3 = new JButton("X");
+		callbtn3.setBackground(null);
+		callbtn3.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		callbtn3.setForeground(Color.YELLOW);
+		callbtn3.setBounds(920, 560, 138, 35);
+		callbtn3.setVisible(false);
+		frame.getContentPane().add(callbtn3);
+		
+		JButton callbtn4 = new JButton("X");
+		callbtn4.setBackground(null);
+		callbtn4.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		callbtn4.setForeground(Color.YELLOW);
+		callbtn4.setBounds(920, 520, 138, 35);
+		callbtn4.setVisible(false);
+		frame.getContentPane().add(callbtn4);
+		
+		JButton callbtn5 = new JButton("X");
+		callbtn5.setBackground(null);
+		callbtn5.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		callbtn5.setForeground(Color.YELLOW);
+		callbtn5.setBounds(920, 480, 138, 35);
+		callbtn5.setVisible(false);
+		frame.getContentPane().add(callbtn5);
+		
+		JButton callbtn6 = new JButton("X");
+		callbtn6.setBackground(null);
+		callbtn6.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		callbtn6.setForeground(Color.YELLOW);
+		callbtn6.setBounds(920, 440, 138, 35);
+		callbtn6.setVisible(false);
+		frame.getContentPane().add(callbtn6);
+		
+		JButton callbtn7 = new JButton("X");
+		callbtn7.setBackground(null);
+		callbtn7.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		callbtn7.setForeground(Color.YELLOW);
+		callbtn7.setBounds(920, 400, 138, 35);
+		callbtn7.setVisible(false);
+		frame.getContentPane().add(callbtn7);
+		
+		JButton callbtn8 = new JButton("HOSPITAL");
+		callbtn8.setBackground(null);
+		callbtn8.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		callbtn8.setForeground(Color.YELLOW);
+		callbtn8.setBounds(920, 360, 138, 35);
+		callbtn8.setVisible(false);
+		frame.getContentPane().add(callbtn8);
+		
+		JButton callbtn9 = new JButton("AMBULANCE");
+		callbtn9.setBackground(null);
+		callbtn9.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+		callbtn9.setForeground(Color.YELLOW);
+		callbtn9.setBounds(920, 320, 138, 35);
+		callbtn9.setVisible(false);
+		frame.getContentPane().add(callbtn9);
 		
 		txtVehicleNumber = new JTextField();
 		txtVehicleNumber.setForeground(Color.YELLOW);
@@ -874,6 +1035,131 @@ public class Frame {
 		txtDateOfBirth.setColumns(10);
 		
 		
+		JPanel GPS = new JPanel();
+		GPS.setBounds(23, 68, 352, 272);
+		GPS.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+		GPS.setBackground(null);
+		GPS.setVisible(false);
+		frame.getContentPane().add(GPS);
+		
+		
+		JTextField txtGPS = new JTextField();
+		txtGPS.setForeground(Color.YELLOW);
+		txtGPS.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+		txtGPS.setText("GPS LOCATION");
+		txtGPS.setBounds(150, 346, 130, 20);
+		txtGPS.setBorder(null);
+		txtGPS.setBackground(null);
+		txtGPS.setVisible(false);
+		txtGPS.setEditable(false);
+		txtGPS.setHighlighter( null );
+		txtGPS.setColumns(10);
+		frame.getContentPane().add(txtGPS);
+		
+		
+		JTextPane soslog = new JTextPane();
+		soslog.setBounds(23, 374, 352, 272);
+		soslog.setVisible(true);
+		soslog.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+		soslog.setBackground(null);
+		soslog.setHighlighter(null);
+		soslog.setEditable(false);
+		soslog.setVisible(false);
+	    frame.getContentPane().add(soslog);
+		
+	    
+	    JTextField txtsoslog = new JTextField();
+	    txtsoslog.setForeground(Color.YELLOW);
+	    txtsoslog.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+	    txtsoslog.setText("LOGGER");
+	    txtsoslog.setBounds(130, 652, 160, 20);
+	    txtsoslog.setBorder(null);
+	    txtsoslog.setBackground(null);
+	    txtsoslog.setVisible(false);
+	    txtsoslog.setEditable(false);
+	    txtsoslog.setHighlighter( null );
+	    txtsoslog.setColumns(10);
+		frame.getContentPane().add(txtsoslog);
+		
+		
+		JPanel hospital = new JPanel();
+		hospital.setBounds(381, 68, 352, 272);
+		hospital.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+		hospital.setBackground(null);
+		hospital.setVisible(false);
+		frame.getContentPane().add(hospital);
+		
+		JTextField txtcall = new JTextField();
+		txtcall.setBounds(960, 303, 96, 20);
+		frame.getContentPane().add(txtcall);
+		txtcall.setColumns(10);
+		txtcall.setText("CALL");
+		txtcall.setForeground(Color.YELLOW);
+		txtcall.setVisible(false);
+		txtcall.setEditable(false);
+		txtcall.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+		txtcall.setHighlighter( null );
+		txtcall.setBorder(null);
+		txtcall.setBackground(null);
+		
+		JTextField txtmsg = new JTextField();
+		txtmsg.setText("MESSAGE");
+		txtmsg.setBounds(800, 303, 96, 20);
+		frame.getContentPane().add(txtmsg);
+		txtmsg.setColumns(10);
+		txtmsg.setColumns(10);
+		txtmsg.setForeground(Color.YELLOW);
+		txtmsg.setVisible(false);
+		txtmsg.setEditable(false);
+		txtmsg.setFont(new Font("Bahnschrift", Font.PLAIN, 16));
+		txtmsg.setHighlighter( null );
+		txtmsg.setBorder(null);
+		txtmsg.setBackground(null);
+		
+		
+		JButton sosbtn = new JButton("SOS");
+		sosbtn.setForeground(Color.YELLOW);
+		sosbtn.setBackground(null);
+		sosbtn.setFont(new Font("Bahnschrift", Font.PLAIN, 50));
+		sosbtn.setBounds(830, 100, 180, 180);
+		sosbtn.setBackground(Color.red);
+		sosbtn.setForeground(Color.BLACK);
+		
+		sosbtn.setVisible(false);
+		frame.getContentPane().add(sosbtn);
+		 
+		    
+		   
+		
+		JTextPane callog = new JTextPane();
+		callog.setBounds(382, 375 ,350 ,135);
+		callog.setText("CALL MESSAGE");
+		callog.setVisible(true);
+		callog.setForeground(Color.YELLOW);
+		callog.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+		callog.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+		callog.setBackground(null);
+		callog.setHighlighter(null);
+		callog.setEditable(false);
+		callog.setVisible(false);
+			frame.getContentPane().add(callog);
+			
+			
+			JTextPane msglog = new JTextPane();
+			msglog.setBounds(382, 515 ,350 ,131);
+			msglog.setText("SOS MESSAGE");
+			msglog.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+			msglog.setVisible(true);
+			msglog.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+			msglog.setBackground(null);
+			msglog.setForeground(Color.YELLOW);
+			msglog.setHighlighter(null);
+			msglog.setEditable(false);
+			msglog.setVisible(false);
+				frame.getContentPane().add(msglog);
+		
+		
+		
 		
 		 JButton dash = new JButton("DASHBOARD");
 		 dash.setForeground(Color.YELLOW);
@@ -887,7 +1173,7 @@ public class Frame {
 				panel_3.setVisible(false);
 				panel_4.setVisible(false);
 				panel_5.setVisible(false);
-				radar.setVisible(false);
+				
 				layeredPane.setVisible(false);
 				txtVehicleNumber.setVisible(false);
 				txtOwnersName.setVisible(false);
@@ -918,6 +1204,50 @@ public class Frame {
 				txtCamera_2.setVisible(true);
 				txtCamera_1.setVisible(true);
 				ptz.setVisible(true);
+				dbdetails.setVisible(false);
+				object.setVisible(false);
+				txtdb.setVisible(false);
+				txtobj.setVisible(false);
+				logger.setVisible(false);
+				 txtlog.setVisible(false);
+				 videoplay.setVisible(false);
+				 txtvideo.setVisible(false);
+				 suspobj.setVisible(false);
+				  txtsuspobj.setVisible(false);
+				  sosbtn.setVisible(false);
+				  GPS.setVisible(false);
+				  	txtGPS.setVisible(false);
+				  soslog.setVisible(false);
+				   txtsoslog.setVisible(false);
+				  	hospital.setVisible(false);
+				  	msgbtn1.setVisible(false);
+				  	msgbtn2.setVisible(false);
+				  	msgbtn3.setVisible(false);
+				  	msgbtn4.setVisible(false);
+				  	msgbtn5.setVisible(false);
+				  	msgbtn6.setVisible(false);
+				  	msgbtn7.setVisible(false);
+				  	msgbtn8.setVisible(false);
+				  	msgbtn9.setVisible(false);
+				  	callbtn1.setVisible(false);
+				  	callbtn2.setVisible(false);
+				  	callbtn3.setVisible(false);
+				  	callbtn4.setVisible(false);
+				  	callbtn5.setVisible(false);
+				  	callbtn6.setVisible(false);
+				  	callbtn7.setVisible(false);
+				  	callbtn8.setVisible(false);
+				  	callbtn9.setVisible(false);
+				  	graphhold.setBounds(740, 374, 352, 272);
+                    graphhold.setVisible(true);
+                    callog.setVisible(false);
+                    msglog.setVisible(false);
+                    txtmsg.setVisible(false);
+                    txtcall.setVisible(false);
+                    
+                   
+                 
+                    
 			}
 		});
 		 dash.setBounds(1145, 72, 126, 40);
@@ -972,7 +1302,7 @@ catch(Exception e) {
 				panel_3.setVisible(false);
 				panel_4.setVisible(false);
 				panel_5.setVisible(false);
-				radar.setVisible(true);
+				
 				layeredPane.setVisible(false);
 				txtVehicleNumber.setVisible(false);
 				txtOwnersName.setVisible(false);
@@ -1003,7 +1333,47 @@ catch(Exception e) {
 				txtCamera_2.setVisible(true);
 				txtCamera_1.setVisible(true);
 				ptz.setVisible(true);
-
+				object.setVisible(false);
+				dbdetails.setVisible(false);
+				txtdb.setVisible(false);
+				txtobj.setVisible(false);
+				logger.setVisible(false);
+				 txtlog.setVisible(false);
+				 videoplay.setVisible(false);
+				 txtvideo.setVisible(false);
+				 suspobj.setVisible(false);
+				  txtsuspobj.setVisible(false);
+				  sosbtn.setVisible(false);
+				  GPS.setVisible(false);
+				  	txtGPS.setVisible(false);
+				  soslog.setVisible(false);
+				   txtsoslog.setVisible(false);
+				  	hospital.setVisible(false);
+				  	msgbtn1.setVisible(false);
+				  	msgbtn2.setVisible(false);
+				  	msgbtn3.setVisible(false);
+				  	msgbtn4.setVisible(false);
+				  	msgbtn5.setVisible(false);
+				  	msgbtn6.setVisible(false);
+				  	msgbtn7.setVisible(false);
+				  	msgbtn8.setVisible(false);
+				  	msgbtn9.setVisible(false);
+				  	callbtn1.setVisible(false);
+				  	callbtn2.setVisible(false);
+				  	callbtn3.setVisible(false);
+				  	callbtn4.setVisible(false);
+				  	callbtn5.setVisible(false);
+				  	callbtn6.setVisible(false);
+				  	callbtn7.setVisible(false);
+				  	callbtn8.setVisible(false);
+				  	callbtn9.setVisible(false);
+				  	graphhold.setVisible(false);
+				  	callog.setVisible(false);
+				  	txtmsg.setVisible(false);
+				  	txtcall.setVisible(false);
+				  	msglog.setVisible(false);
+				  	
+				  
 			}
 		});
 		btnRadar.setBounds(1145, 123, 126, 40);
@@ -1088,6 +1458,47 @@ catch(Exception e) {
 				txtCamera_3.setBounds(500, 346, 135, 20);	
 				ptz.setBounds(150, 652, 125, 20);
 				txtCamera_1.setBounds(500, 652, 130, 20);
+				object.setVisible(false);
+				dbdetails.setVisible(false);
+				txtdb.setVisible(false);
+				txtobj.setVisible(false);
+				logger.setVisible(false);
+				 txtlog.setVisible(false);
+				 videoplay.setVisible(false);
+				 txtvideo.setVisible(false);
+				 suspobj.setVisible(false);
+				  txtsuspobj.setVisible(false);
+				  sosbtn.setVisible(false);
+				  GPS.setVisible(false);
+				  	txtGPS.setVisible(false);
+				  soslog.setVisible(false);
+				   txtsoslog.setVisible(false);
+				  	hospital.setVisible(false);
+				  	msgbtn1.setVisible(false);
+				  	msgbtn2.setVisible(false);
+				  	msgbtn3.setVisible(false);
+				  	msgbtn4.setVisible(false);
+				  	msgbtn5.setVisible(false);
+				  	msgbtn6.setVisible(false);
+				  	msgbtn7.setVisible(false);
+				  	msgbtn8.setVisible(false);
+				  	msgbtn9.setVisible(false);
+				  	callbtn1.setVisible(false);
+				  	callbtn2.setVisible(false);
+				  	callbtn3.setVisible(false);
+				  	callbtn4.setVisible(false);
+				  	callbtn5.setVisible(false);
+				  	callbtn6.setVisible(false);
+				  	callbtn7.setVisible(false);
+				  	callbtn8.setVisible(false);
+				  	callbtn9.setVisible(false);
+
+                     graphhold.setBounds(740, 374, 352, 272);
+                    graphhold.setVisible(true);
+                    callog.setVisible(false);
+                    msglog.setVisible(false);
+                    txtmsg.setVisible(false);
+                    txtcall.setVisible(false);
 				
 			}
 		});
@@ -1126,10 +1537,7 @@ catch(Exception e) {
 		btnIVehicleID.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) { 
-				txtCamera.setVisible(false);
-				txtCamera_1.setVisible(false);
-				txtCamera_2.setVisible(false);
-				txtCamera_3.setVisible(false);
+				
 				canvas.setVisible(false);
 				canvas_1.setVisible(false);
 				canvas_2.setVisible(false);
@@ -1143,15 +1551,76 @@ catch(Exception e) {
 				panel_5.setVisible(false);
 				radar.setVisible(false);
 				layeredPane.setVisible(false);
-				txtVehicleNumber.setVisible(true);
-				txtOwnersName.setVisible(true);
-				txtRcAddress.setVisible(true);
-				txtRegest.setVisible(true);
-				txtName.setVisible(false);
-				txtAge.setVisible(false);
-				txtAddress.setVisible(false);
-				txtDateOfBirth.setVisible(false);
+				
+				//txtVehicleNumber.setVisible(true);
+				//txtOwnersName.setVisible(true);
+				//txtRcAddress.setVisible(true);
+				//txtRegest.setVisible(true);
+				//txtName.setVisible(false);
+				//txtAge.setVisible(false);
+				//txtAddress.setVisible(false);
+				//txtDateOfBirth.setVisible(false);
+				object.setVisible(true);
+				dbdetails.setVisible(true);
+				txtdb.setVisible(true);
+				txtobj.setVisible(true);
+				txtCamera_2.setBounds(858, 346, 130, 20);
+				txtCamera.setBounds(150, 346, 130, 20);
+				txtCamera_3.setBounds(500, 346, 135, 20);
+				txtCamera_1.setBounds(500, 652, 130, 20);
+				canvas_4.setBounds(23, 374, 352, 272); 
+				canvas_1.setBounds(739, 68, 352, 272);
+				canvas.setBounds(23, 68, 352, 272);
+				canvas_2.setBounds(381, 68, 352, 272);
+				canvas_3.setBounds(381, 374, 352, 272);
+				ptz.setBounds(150, 652, 125, 20);
+				txtCamera_2.setVisible(true);
+				txtCamera.setVisible(true);
+				txtCamera_3.setVisible(true);
+				txtCamera_3.setVisible(true);
+				txtCamera_1.setVisible(true);
+				ptz.setVisible(true);
+				canvas_4.setVisible(true);
+				canvas_1.setVisible(true);
+				canvas.setVisible(true);
+				canvas_2.setVisible(true);
+				canvas_3.setVisible(true);
+				logger.setVisible(false);
+				 txtlog.setVisible(false);
+				 videoplay.setVisible(false);
+				 txtvideo.setVisible(false);
+				 suspobj.setVisible(false);
+				  txtsuspobj.setVisible(false);
 				maindash.setText("PERSON / VEHICLE IDENTIFICATION");
+				sosbtn.setVisible(false);
+				GPS.setVisible(false);
+					txtGPS.setVisible(false);
+				soslog.setVisible(false);
+				 txtsoslog.setVisible(false);
+					hospital.setVisible(false);
+					msgbtn1.setVisible(false);
+					msgbtn2.setVisible(false);
+					msgbtn3.setVisible(false);
+					msgbtn4.setVisible(false);
+					msgbtn5.setVisible(false);
+					msgbtn6.setVisible(false);
+					msgbtn7.setVisible(false);
+					msgbtn8.setVisible(false);
+					msgbtn9.setVisible(false);
+					callbtn1.setVisible(false);
+					callbtn2.setVisible(false);
+					callbtn3.setVisible(false);
+					callbtn4.setVisible(false);
+					callbtn5.setVisible(false);
+					callbtn6.setVisible(false);
+					callbtn7.setVisible(false);
+					callbtn8.setVisible(false);
+					callbtn9.setVisible(false);
+					graphhold.setVisible(false);
+					callog.setVisible(false);
+					msglog.setVisible(false);
+					txtmsg.setVisible(false);
+					txtcall.setVisible(false);
 			}
 		});
 		btnIVehicleID.setBounds(1145, 276, 126, 40);
@@ -1191,15 +1660,22 @@ catch(Exception e) {
 		evidence.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) { 
-				txtCamera.setVisible(false);
-				txtCamera_1.setVisible(false);
-				txtCamera_2.setVisible(false);
-				txtCamera_3.setVisible(false);
-				canvas.setVisible(false);
-				canvas_1.setVisible(false);
-				canvas_2.setVisible(false);
-				canvas_3.setVisible(false);
-				canvas_4.setVisible(false);
+				txtCamera_2.setVisible(true);
+				txtCamera.setVisible(true);
+				txtCamera_3.setVisible(true);
+				txtCamera_3.setVisible(true);
+				txtCamera_1.setVisible(true);
+				ptz.setVisible(true);
+                canvas_4.setBounds(23, 374, 352, 272); 
+				canvas_1.setBounds(739, 68, 352, 272);
+				canvas.setBounds(23, 68, 352, 272);
+				canvas_2.setBounds(381, 68, 352, 272);
+				canvas_3.setBounds(381, 374, 352, 272);
+				canvas_4.setVisible(true);
+				canvas_1.setVisible(true);
+				canvas.setVisible(true);
+				canvas_2.setVisible(true);
+				canvas_3.setVisible(true);
 				panel.setVisible(false);
 				panel_1.setVisible(false);
 				panel_2.setVisible(false);
@@ -1216,7 +1692,46 @@ catch(Exception e) {
 				txtAge.setVisible(false);
 				txtAddress.setVisible(false);
 				txtDateOfBirth.setVisible(false);
+				object.setVisible(false);
+				dbdetails.setVisible(false);
+				txtdb.setVisible(false);
+				txtobj.setVisible(false);
 				maindash.setText("EVIDENCE MANAGMENT");
+				logger.setVisible(true);
+				 txtlog.setVisible(true);
+				 videoplay.setVisible(true);
+				 txtvideo.setVisible(true);
+				 suspobj.setVisible(false);
+				  txtsuspobj.setVisible(false);
+				  sosbtn.setVisible(false);
+				  GPS.setVisible(false);
+				  	txtGPS.setVisible(false);
+				  soslog.setVisible(false);
+				   txtsoslog.setVisible(false);
+				  	hospital.setVisible(false);
+				  	msgbtn1.setVisible(false);
+				  	msgbtn2.setVisible(false);
+				  	msgbtn3.setVisible(false);
+				  	msgbtn4.setVisible(false);
+				  	msgbtn5.setVisible(false);
+				  	msgbtn6.setVisible(false);
+				  	msgbtn7.setVisible(false);
+				  	msgbtn8.setVisible(false);
+				  	msgbtn9.setVisible(false);
+				  	callbtn1.setVisible(false);
+				  	callbtn2.setVisible(false);
+				  	callbtn3.setVisible(false);
+				  	callbtn4.setVisible(false);
+				  	callbtn5.setVisible(false);
+				  	callbtn6.setVisible(false);
+				  	callbtn7.setVisible(false);
+				  	callbtn8.setVisible(false);
+				  	callbtn9.setVisible(false);
+				  	graphhold.setVisible(false);
+				  	callog.setVisible(false);
+				  	msglog.setVisible(false);
+				  	txtmsg.setVisible(false);
+				  	txtcall.setVisible(false);
 			}
 		});    
 		evidence.setBounds(1145, 327, 126, 40);
@@ -1275,7 +1790,47 @@ catch(Exception e) {
 				txtAge.setVisible(false);
 				txtAddress.setVisible(false);
 				txtDateOfBirth.setVisible(false);
+				object.setVisible(false);
+				dbdetails.setVisible(false);
+				txtdb.setVisible(false);
+				ptz.setVisible(false);
+				txtobj.setVisible(false);
+				logger.setVisible(false);
+				 txtlog.setVisible(false);
+				 videoplay.setVisible(false);
+				 txtvideo.setVisible(false);
+				 suspobj.setVisible(false);
 				maindash.setText("SOS SIGNAL");
+				  txtsuspobj.setVisible(false);
+				  sosbtn.setVisible(true);
+				  GPS.setVisible(true);
+				  	txtGPS.setVisible(true);
+				  soslog.setVisible(true);
+				   txtsoslog.setVisible(true);
+				  	hospital.setVisible(true);
+				  	msgbtn1.setVisible(true);
+				  	msgbtn2.setVisible(true);
+				  	msgbtn3.setVisible(true);
+				  	msgbtn4.setVisible(true);
+				  	msgbtn5.setVisible(true);
+				  	msgbtn6.setVisible(true);
+				  	msgbtn7.setVisible(true);
+				  	msgbtn8.setVisible(true);
+				  	msgbtn9.setVisible(true);
+				  	callbtn1.setVisible(true);
+				  	callbtn2.setVisible(true);
+				  	callbtn3.setVisible(true);
+				  	callbtn4.setVisible(true);
+				  	callbtn5.setVisible(true);
+				  	callbtn6.setVisible(true);
+				  	callbtn7.setVisible(true);
+				  	callbtn8.setVisible(true);
+				  	callbtn9.setVisible(true);
+				  	graphhold.setVisible(false);
+				  	callog.setVisible(true);
+				  	msglog.setVisible(true);
+				  	txtmsg.setVisible(true);
+				  	txtcall.setVisible(true);
 			}
 		});  
 		sos.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
@@ -1316,7 +1871,7 @@ catch(Exception e) {
 		
 		JTextField company = new JTextField();
 		company.setText("INDIGENOUS ROBOTIC UNMANNED SYSTEMS [IRUS]");
-		company.setBounds(10, 664, 500, 40);
+		company.setBounds(10, 670, 500, 40);
 		company.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
 		company.setForeground(Color.YELLOW);
 		company.setVisible(true);
@@ -1350,15 +1905,7 @@ catch(Exception e) {
 		suspact.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) { 
-				txtCamera.setVisible(false);
-				txtCamera_1.setVisible(false);
-				txtCamera_2.setVisible(false);
-				txtCamera_3.setVisible(false);
-				canvas.setVisible(false);
-				canvas_1.setVisible(false);
-				canvas_2.setVisible(false);
-				canvas_3.setVisible(false);
-				canvas_4.setVisible(false);
+				
 				panel.setVisible(false);
 				panel_1.setVisible(false);
 				panel_2.setVisible(false);
@@ -1375,7 +1922,47 @@ catch(Exception e) {
 				txtAge.setVisible(false);
 				txtAddress.setVisible(false);
 				txtDateOfBirth.setVisible(false);
+				object.setVisible(false);
+				dbdetails.setVisible(false);
+				txtdb.setVisible(false);
+				logger.setVisible(false);
+				 txtlog.setVisible(false);
+				txtobj.setVisible(false);
+				videoplay.setVisible(false);
+				txtvideo.setVisible(false);
+				canvas_4.setBounds(23, 374, 352, 272); 
+				canvas_1.setBounds(739, 68, 352, 272);
+				canvas_2.setBounds(381, 68, 352, 272);
+				canvas_3.setBounds(381, 374, 352, 272);
+				txtCamera_1.setBounds(500, 652, 130, 20);
+				txtCamera_3.setBounds(500, 346, 135, 20);
+				txtCamera.setBounds(150, 346, 130, 20);
+				txtCamera_2.setBounds(858, 346, 130, 20);
+				txtCamera.setVisible(true);
+				txtCamera_1.setVisible(true);
+				txtCamera_2.setVisible(true);
+				txtCamera_3.setVisible(true);
+				ptz.setVisible(false);
+				canvas.setVisible(true);
+				canvas_1.setVisible(true);
+				canvas_2.setVisible(true);
+				canvas_3.setVisible(true);
+				canvas_4.setVisible(false);
+				suspobj.setVisible(true);
+				  txtsuspobj.setVisible(true);
 				maindash.setText("SUSPICIOUS ACTIVITY DETECTION");
+				sosbtn.setVisible(false);
+				GPS.setVisible(false);
+					txtGPS.setVisible(false);
+				soslog.setVisible(false);
+				 txtsoslog.setVisible(false);
+					hospital.setVisible(false);
+					graphhold.setVisible(false);
+					callog.setVisible(false);
+					msglog.setVisible(false);
+					txtmsg.setVisible(false);
+					txtcall.setVisible(false);
+					
 			}
 		});    
 		suspact.setBounds(1145, 225, 126, 40);
@@ -1394,6 +1981,49 @@ catch(Exception e) {
 		});
 	  
 	frame.getContentPane().add(suspact);
+	
+	textField_4 = new JTextField();
+	textField_4.setText("NOTIFICATIONS LOG");
+	textField_4.setBounds(450, 38, 283, 20);
+	frame.getContentPane().add(textField_4);
+	textField_4.setColumns(10);
+	textField_4.setForeground(Color.YELLOW);
+	textField_4.setVisible(true);
+	textField_4.setEditable(false);
+	textField_4.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+	textField_4.setHighlighter( null );
+	textField_4.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+	textField_4.setBackground(null);
+ 	
+	JTextField cpuload = new JTextField();
+	cpuload.setText("CPU LOAD");
+	cpuload.setBounds(490, 17, 95, 20);
+	frame.getContentPane().add(cpuload);
+	cpuload.setColumns(10);
+	cpuload.setForeground(Color.YELLOW);
+	cpuload.setVisible(true);
+	cpuload.setEditable(false);
+	cpuload.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+	cpuload.setHighlighter( null );
+	cpuload.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+	cpuload.setBackground(null);
+	
+	JTextField ramload = new JTextField();
+	ramload.setBounds(590, 17, 101, 20);
+	ramload.setText("RAM LOAD");
+	frame.getContentPane().add(ramload);
+	ramload.setColumns(10);
+	ramload.setForeground(Color.YELLOW);
+	ramload.setVisible(true);
+	ramload.setEditable(false);
+	ramload.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
+	ramload.setHighlighter( null );
+	ramload.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+	ramload.setBackground(null);
+	
+	
+	
+	
 	
 	
 		

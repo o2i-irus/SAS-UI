@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="img"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -47,5 +48,9 @@
 	<classpathentry kind="lib" path="D:/JREs/opencv-2.4.1.jar"/>
 	<classpathentry kind="lib" path="D:/JREs/gradle-wrapper.jar"/>
 	<classpathentry kind="lib" path="D:/JREs/xchart-3.5.0.jar"/>
+	<classpathentry kind="lib" path="D:/JREs/jmxri.jar"/>
+	<classpathentry kind="lib" path="D:/JREs/jmx-client.jar"/>
+	<classpathentry kind="lib" path="D:/JREs/jfreechart.jar"/>
+	<classpathentry kind="lib" path="D:/JREs/openjfx-78-backport-1.8.0-ea-b96.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
