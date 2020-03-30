@@ -1,16 +1,14 @@
 package aiframe;
 import javax.imageio.ImageIO;
-import aiframe.Frame.*;
-import javax.swing.*;
 
-import java.awt.Canvas;
+
+
+
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.TimerTask;
-
-import aiframe.Frame.*;
 public class RefreshTask extends TimerTask  {
 public static BufferedImage cameraOne;
 	

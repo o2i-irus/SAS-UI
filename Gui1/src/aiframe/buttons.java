@@ -5,14 +5,24 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import aiframe.Frame;
-
+import aiframe.ptzbtns;
+import aiframe.videoplay;
 public class buttons {
+	public static JButton dash;
+	public static JButton btnRadar;
+	public static JButton btnIdentification;
+	public static JButton suspact;
+	public static JButton btnIVehicleID;
+	public static JButton evidence;
+	public static JButton sos;
 	public void buttonsmain() {
-		JButton dash = new JButton("DASHBOARD");
+	    dash = new JButton("DASHBOARD");
 		dash.setForeground(Color.YELLOW);
 		dash.setBackground(null);
+		dash.setBorder(BorderFactory.createLineBorder(Color.YELLOW)); 
 		dash.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
 		dash.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -33,21 +43,21 @@ public class buttons {
 				Frame.txtAddress.setVisible(false);
 				Frame.txtDateOfBirth.setVisible(false);
 				Frame.maindash.setText("MAIN DASHBOARD");
-				Frame.canvas.setBounds(23, 68, 352, 272);
-				Frame.canvas_2.setBounds(381, 68, 352, 272);
-				Frame.canvas_1.setBounds(739, 68, 352, 272);
-				Frame.canvas_4.setBounds(23, 374, 352, 272);
-				Frame.canvas_3.setBounds(381, 374, 352, 272);
+				canvas.campanel4.setBounds(23, 68, 352, 272);
+				canvas.campanel3.setBounds(381, 68, 352, 272);
+				canvas.campanel2.setBounds(739, 68, 352, 272);
+			canvas.campanel1.setBounds(23, 374, 352, 272);
+				canvas.campanel5.setBounds(381, 374, 352, 272);
 				Frame.txtCamera.setBounds(150, 346, 130, 20);
 				Frame.txtCamera_3.setBounds(500, 346, 135, 20);
 				Frame.txtCamera_2.setBounds(858, 346, 130, 20);
 				Frame.ptz.setBounds(150, 652, 125, 20);
 				Frame.txtCamera_1.setBounds(500, 652, 130, 20);
-				Frame.canvas.setVisible(true);
-				Frame.canvas_2.setVisible(true);
-				Frame.canvas_3.setVisible(true);
-				Frame.canvas_4.setVisible(true);
-				Frame.canvas_1.setVisible(true);
+				canvas.campanel4.setVisible(true);
+				canvas.campanel3.setVisible(true);
+			    canvas.campanel5.setVisible(true);
+				canvas.campanel1.setVisible(true);
+				canvas.campanel2.setVisible(true);
 				Frame.txtCamera.setVisible(true);
 				Frame.txtCamera_3.setVisible(true);
 				Frame.txtCamera_2.setVisible(true);
@@ -63,7 +73,7 @@ public class buttons {
 				Frame.txtvideo.setVisible(false);
 				Frame.suspobj.setVisible(false);
 				Frame.txtsuspobj.setVisible(false);
-				Frame.sosbtn.setVisible(false);
+				sosbtns.sosbtn.setVisible(false);
 				Frame.GPS.setVisible(false);
 				Frame.txtGPS.setVisible(false);
 				 Frame.soslog.setVisible(false);
@@ -94,10 +104,19 @@ public class buttons {
 				Frame.txtmsg.setVisible(false);
 				Frame.txtcall.setVisible(false);
 				radar.h.setVisible(false);
+				ptzbtns.left.setVisible(false);
+				ptzbtns.right.setVisible(false);
+				ptzbtns.up.setVisible(false);
+				ptzbtns.down.setVisible(false);
+			  videoplay.choose.setVisible(false);
+			  videoplay.mannualplay.setVisible(false);
+			  ptzbtns.txtptzstate.setVisible(false);
+			  ptzbtns.toggleButton.setVisible(false);
 
 			}
 		});
 		dash.setBounds(1145, 72, 126, 40);
+		dash.setFocusPainted(false);
 		dash.addMouseListener(new java.awt.event.MouseAdapter() {
 
 			public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -105,13 +124,14 @@ public class buttons {
 				dash.setForeground(Color.BLACK);
 				dash.setBounds(1143, 70, 130, 45);
 			}
+			
 
 			public void mouseExited(java.awt.event.MouseEvent evt) {
 				dash.setBackground(null);
 				dash.setForeground(Color.YELLOW);
 				dash.setBounds(1145, 72, 126, 40);
 			}
-
+		
 		});
 	
 
@@ -121,6 +141,7 @@ public class buttons {
 		JButton btnRadar = new JButton("PERSON TRACKING");
 		btnRadar.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
 		btnRadar.setForeground(Color.YELLOW);
+		btnRadar.setBorder(BorderFactory.createLineBorder(Color.YELLOW)); 
 		btnRadar.setBackground(null);
 		btnRadar.addActionListener(new ActionListener() {
 			
@@ -143,21 +164,21 @@ public class buttons {
 				Frame.txtAddress.setVisible(false);
 				Frame.txtDateOfBirth.setVisible(false);
 				Frame.maindash.setText("PERSON TRACKING");
-				Frame.canvas.setBounds(635, 298, 249, 177);
-				Frame.canvas_2.setBounds(890, 298, 249, 177);
-				Frame.canvas_1.setBounds(767, 502, 249, 177);
-				Frame.canvas_3.setBounds(1022, 502, 249, 177);
-				Frame.canvas_4.setBounds(38, 96, 591, 470);
+				canvas.campanel4.setBounds(635, 298, 249, 177);     //left
+				canvas.campanel3.setBounds(890, 298, 249, 177);     //front
+				canvas.campanel2.setBounds(767, 502, 249, 177);    //right
+				canvas.campanel5.setBounds(1022, 502, 249, 177);    //back
+				canvas.campanel1.setBounds(80, 96, 491, 460);    //ptz
 				Frame.txtCamera.setBounds(727, 481, 130, 20);
 				Frame.txtCamera_3.setBounds(958, 481, 130, 20);
 				Frame.txtCamera_2.setBounds(851, 684, 130, 20);
 				Frame.txtCamera_1.setBounds(1097, 684, 130, 20);
-				Frame.ptz.setBounds(263, 572, 125, 20);
-				Frame.canvas.setVisible(true);
-				Frame.canvas_2.setVisible(true);
-				Frame.canvas_3.setVisible(true);
-				Frame.canvas_4.setVisible(true);
-				Frame.canvas_1.setVisible(true);
+				Frame.ptz.setBounds(275, 620, 125, 20);
+				canvas.campanel4.setVisible(true);
+				canvas.campanel3.setVisible(true);
+				canvas.campanel5.setVisible(true);
+				canvas.campanel1.setVisible(true);
+				canvas.campanel2.setVisible(true);
 				Frame.txtCamera.setVisible(true);
 				Frame.txtCamera_3.setVisible(true);
 				Frame.txtCamera_2.setVisible(true);
@@ -173,7 +194,7 @@ public class buttons {
 				Frame.txtvideo.setVisible(false);
 				Frame.suspobj.setVisible(false);
 				Frame.txtsuspobj.setVisible(false);
-				Frame.sosbtn.setVisible(false);
+				sosbtns.sosbtn.setVisible(false);
 				Frame.GPS.setVisible(false);
 				Frame.txtGPS.setVisible(false);
 				Frame.soslog.setVisible(false);
@@ -203,12 +224,22 @@ public class buttons {
 				Frame.txtcall.setVisible(false);
 				Frame.msglog.setVisible(false);
 				radar.h.setVisible(true);
+				radar.h.setBounds(740, 68, 300, 228);
+				ptzbtns.left.setVisible(true);
+				ptzbtns.right.setVisible(true);
+				ptzbtns.up.setVisible(true);
+				ptzbtns.down.setVisible(true);
+				videoplay.choose.setVisible(false);
+				videoplay.mannualplay.setVisible(false);
+				 ptzbtns.txtptzstate.setVisible(true);
+				 ptzbtns.toggleButton.setVisible(true);
+				
 				  	
 				  
 			}
 		});
 		btnRadar.setBounds(1145, 123, 126, 40);
-		
+		btnRadar.setFocusPainted(false);
 		btnRadar.addMouseListener(new java.awt.event.MouseAdapter() {
 			
 			
@@ -226,6 +257,7 @@ public class buttons {
 		        btnRadar.setBounds(1145, 123, 126, 40);
 		    }
 		    
+		    
 		});
 
 	  
@@ -236,6 +268,7 @@ public class buttons {
 		btnIdentification.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
 		btnIdentification.setForeground(Color.YELLOW);
 		btnIdentification.setBackground(null);
+		btnIdentification.setBorder(BorderFactory.createLineBorder(Color.YELLOW)); 
 		btnIdentification.addActionListener(new ActionListener() 
 		{
 			public void actionPerformed(ActionEvent e)
@@ -259,22 +292,22 @@ public class buttons {
 				Frame.txtAge.setVisible(false);
 				Frame.txtAddress.setVisible(false);
 				Frame.txtDateOfBirth.setVisible(false);
-				Frame.canvas_1.setBounds(23, 374, 352, 272);
+				canvas.campanel2.setBounds(23, 374, 352, 272);
 				Frame.txtCamera_2.setBounds(150, 652, 125, 20);
 				Frame.maindash.setText("MOB INTENSITY LEVEL");
-				Frame.canvas.setVisible(true);
-				Frame.canvas_2.setVisible(true);
-				Frame.canvas_3.setVisible(true);
-				Frame.canvas_4.setVisible(false);
-				Frame.canvas_1.setVisible(true);
+				canvas.campanel4.setVisible(true);
+				canvas.campanel3.setVisible(true);
+				canvas.campanel5.setVisible(true);
+				canvas.campanel1.setVisible(false);
+				canvas.campanel2.setVisible(true);
 				Frame.txtCamera.setVisible(true);
 				Frame.txtCamera_3.setVisible(true);
 				Frame.txtCamera_2.setVisible(true);
 				Frame.txtCamera_1.setVisible(true);
 				Frame.ptz.setVisible(false);
-				Frame.canvas_2.setBounds(381, 68, 352, 272);
-				Frame.canvas.setBounds(23, 68, 352, 272);
-				Frame.canvas_3.setBounds(381, 374, 352, 272);
+				canvas.campanel3.setBounds(381, 68, 352, 272);
+				canvas.campanel4.setBounds(23, 68, 352, 272);
+				canvas.campanel5.setBounds(381, 374, 352, 272);
 				Frame.txtCamera.setBounds(150, 346, 130, 20);
 				Frame.txtCamera_3.setBounds(500, 346, 135, 20);	
 				Frame.ptz.setBounds(150, 652, 125, 20);
@@ -289,7 +322,7 @@ public class buttons {
 				Frame.txtvideo.setVisible(false);
 				Frame.suspobj.setVisible(false);
 				Frame.txtsuspobj.setVisible(false);
-				Frame.sosbtn.setVisible(false);
+				sosbtns.sosbtn.setVisible(false);
 				Frame.GPS.setVisible(false);
 				Frame.txtGPS.setVisible(false);
 				Frame.soslog.setVisible(false);
@@ -321,10 +354,19 @@ public class buttons {
 				Frame.txtmsg.setVisible(false);
 				Frame.txtcall.setVisible(false);
 				radar.h.setVisible(true);
-				
+				radar.h.setBounds(740, 68, 352, 272);
+				ptzbtns.left.setVisible(false);
+				ptzbtns.right.setVisible(false);
+				ptzbtns.up.setVisible(false);
+				ptzbtns.down.setVisible(false);
+				videoplay.choose.setVisible(false);
+				videoplay.mannualplay.setVisible(false);
+				 ptzbtns.txtptzstate.setVisible(false);
+				 ptzbtns.toggleButton.setVisible(false);
 			}
 		});
 		btnIdentification.setBounds(1145, 174, 126, 40);
+		btnIdentification.setFocusPainted(false);
 		btnIdentification.addMouseListener(new java.awt.event.MouseAdapter() {
 		    public void mouseEntered(java.awt.event.MouseEvent evt) {
 		    	btnIdentification.setBackground(Color.YELLOW);
@@ -346,7 +388,9 @@ public class buttons {
 		JButton suspact = new JButton("SUSPICIOUS ACTIVITY");
 		suspact.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
 		suspact.setVisible(true);
+	    suspact.setFocusPainted(false);
 		suspact.setBackground(null);
+		suspact.setBorder(BorderFactory.createLineBorder(Color.YELLOW)); 
 		suspact.setForeground(Color.YELLOW);
 		suspact.addActionListener(new ActionListener() {
 			
@@ -375,10 +419,10 @@ public class buttons {
 				Frame.txtobj.setVisible(false);
 				Frame.videoplay.setVisible(false);
 				Frame.txtvideo.setVisible(false);
-				Frame.canvas_4.setBounds(23, 374, 352, 272); 
-				Frame.canvas_1.setBounds(739, 68, 352, 272);
-				Frame.canvas_2.setBounds(381, 68, 352, 272);
-				Frame.canvas_3.setBounds(381, 374, 352, 272);
+				canvas.campanel1.setBounds(23, 374, 352, 272); 
+				canvas.campanel2.setBounds(739, 68, 352, 272);
+				canvas.campanel3.setBounds(381, 68, 352, 272);
+				canvas.campanel5.setBounds(381, 374, 352, 272);
 				Frame.txtCamera_1.setBounds(500, 652, 130, 20);
 				Frame.txtCamera_3.setBounds(500, 346, 135, 20);
 				Frame.txtCamera.setBounds(150, 346, 130, 20);
@@ -388,15 +432,15 @@ public class buttons {
 				Frame.txtCamera_2.setVisible(true);
 				Frame.txtCamera_3.setVisible(true);
 				Frame.ptz.setVisible(false);
-				Frame.canvas.setVisible(true);
-				Frame.canvas_1.setVisible(true);
-				Frame.canvas_2.setVisible(true);
-				Frame.canvas_3.setVisible(true);
-				Frame.canvas_4.setVisible(false);
+				canvas.campanel4.setVisible(true);
+				canvas.campanel2.setVisible(true);
+				canvas.campanel3.setVisible(true);
+				canvas.campanel5.setVisible(true);
+				canvas.campanel1.setVisible(false);
 				Frame.suspobj.setVisible(true);
 				Frame.txtsuspobj.setVisible(true);
 				Frame.maindash.setText("SUSPICIOUS ACTIVITY DETECTION");
-				Frame.sosbtn.setVisible(false);
+				sosbtns.sosbtn.setVisible(false);
 				Frame.GPS.setVisible(false);
 				Frame.txtGPS.setVisible(false);
 				Frame.soslog.setVisible(false);
@@ -408,6 +452,7 @@ public class buttons {
 				Frame.txtmsg.setVisible(false);
 				Frame.txtcall.setVisible(false);
 				radar.h.setVisible(true);
+				radar.h.setBounds(740, 374, 352, 272);
 				sosbtns.msgbtn1.setVisible(false);
 				sosbtns.msgbtn2.setVisible(false);
 				sosbtns.msgbtn3.setVisible(false);
@@ -426,6 +471,14 @@ public class buttons {
 				sosbtns.callbtn7.setVisible(false);
 				sosbtns.callbtn8.setVisible(false);
 				sosbtns.callbtn9.setVisible(false);
+				ptzbtns.left.setVisible(false);
+				ptzbtns.right.setVisible(false);
+				ptzbtns.up.setVisible(false);
+				ptzbtns.down.setVisible(false);
+				videoplay.choose.setVisible(false);
+				videoplay.mannualplay.setVisible(false);
+				 ptzbtns.txtptzstate.setVisible(false);
+				 ptzbtns.toggleButton.setVisible(false);
 					
 			}
 		});    
@@ -451,15 +504,24 @@ public class buttons {
 	btnIVehicleID.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
 	btnIVehicleID.setForeground(Color.YELLOW);
 	btnIVehicleID.setBackground(null);
+	btnIVehicleID.setFocusPainted(false);
+	btnIVehicleID.setBorder(BorderFactory.createLineBorder(Color.YELLOW)); 
 	btnIVehicleID.addActionListener(new ActionListener() {
 		
 		public void actionPerformed(ActionEvent e) { 
 			
-			Frame.canvas.setVisible(false);
-			Frame.canvas_1.setVisible(false);
-			Frame.canvas_2.setVisible(false);
-			Frame.canvas_3.setVisible(false);
-			Frame.canvas_4.setVisible(false);
+			
+			canvas.campanel1.setBounds(23, 374, 352, 272); 
+			canvas.campanel2.setBounds(739, 68, 352, 272);
+			canvas.campanel4.setBounds(23, 68, 352, 272);
+			canvas.campanel3.setBounds(381, 68, 352, 272);
+		    canvas.campanel5.setBounds(381, 374, 352, 272);
+			canvas.campanel4.setVisible(true);
+			canvas.campanel2.setVisible(true);
+			canvas.campanel3.setVisible(true);
+			canvas.campanel5.setVisible(true);
+			canvas.campanel1.setVisible(true);
+			
 			Frame.panel.setVisible(false);
 			Frame.panel_1.setVisible(false);
 			Frame.panel_2.setVisible(false);
@@ -469,7 +531,7 @@ public class buttons {
 	
 			Frame.layeredPane.setVisible(false);
 			
-			//txtVehicleNumber.setVisible(true);
+				//txtVehicleNumber.setVisible(true);
 			//txtOwnersName.setVisible(true);
 			//txtRcAddress.setVisible(true);
 			//txtRegest.setVisible(true);
@@ -485,11 +547,7 @@ public class buttons {
 			Frame.txtCamera.setBounds(150, 346, 130, 20);
 			Frame.txtCamera_3.setBounds(500, 346, 135, 20);
 			Frame.txtCamera_1.setBounds(500, 652, 130, 20);
-			Frame.canvas_4.setBounds(23, 374, 352, 272); 
-			Frame.canvas_1.setBounds(739, 68, 352, 272);
-			Frame.canvas.setBounds(23, 68, 352, 272);
-			Frame.canvas_2.setBounds(381, 68, 352, 272);
-			Frame.canvas_3.setBounds(381, 374, 352, 272);
+		
 			Frame.ptz.setBounds(150, 652, 125, 20);
 			Frame.txtCamera_2.setVisible(true);
 			Frame.txtCamera.setVisible(true);
@@ -497,11 +555,6 @@ public class buttons {
 			Frame.txtCamera_3.setVisible(true);
 			Frame.txtCamera_1.setVisible(true);
 			Frame.ptz.setVisible(true);
-			Frame.canvas_4.setVisible(true);
-			Frame.canvas_1.setVisible(true);
-			Frame.canvas.setVisible(true);
-			Frame.canvas_2.setVisible(true);
-			Frame.canvas_3.setVisible(true);
 			Frame.logger.setVisible(false);
 			Frame.txtlog.setVisible(false);
 			Frame.videoplay.setVisible(false);
@@ -509,7 +562,7 @@ public class buttons {
 			Frame.suspobj.setVisible(false);
 			Frame.txtsuspobj.setVisible(false);
 			Frame.maindash.setText("PERSON / VEHICLE IDENTIFICATION");
-			Frame.sosbtn.setVisible(false);
+			sosbtns.sosbtn.setVisible(false);
 			Frame.GPS.setVisible(false);
 			Frame.txtGPS.setVisible(false);
 			Frame.soslog.setVisible(false);
@@ -538,7 +591,15 @@ public class buttons {
 			Frame.msglog.setVisible(false);
 			Frame.txtmsg.setVisible(false);
 			Frame.txtcall.setVisible(false);
-			radar.h.setVisible(true);
+			radar.h.setVisible(false);   
+			ptzbtns.left.setVisible(false);
+			ptzbtns.right.setVisible(false);
+			ptzbtns.up.setVisible(false);
+			ptzbtns.down.setVisible(false);
+			videoplay.choose.setVisible(false);
+			videoplay.mannualplay.setVisible(false);
+			 ptzbtns.txtptzstate.setVisible(false);
+			 ptzbtns.toggleButton.setVisible(false);
 		}
 	});
 	btnIVehicleID.setBounds(1145, 276, 126, 40);
@@ -554,6 +615,7 @@ public class buttons {
 	    	btnIVehicleID.setForeground(Color.YELLOW);
 	    	btnIVehicleID.setBounds(1145, 276, 126, 40);
 	    }
+	   
 	});
 
 	
@@ -563,8 +625,11 @@ public class buttons {
 	JButton evidence = new JButton("EVIDENCE MANAGMENT");
 	evidence.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
 	evidence.setVisible(true);
+	evidence.setFocusPainted(false);
 	evidence.setBackground(null);
+	evidence.setBorder(BorderFactory.createLineBorder(Color.YELLOW)); 
 	evidence.setForeground(Color.YELLOW);
+	
 	evidence.addActionListener(new ActionListener() {
 		
 		public void actionPerformed(ActionEvent e) { 
@@ -574,16 +639,16 @@ public class buttons {
 			Frame.txtCamera_3.setVisible(true);
 			Frame.txtCamera_1.setVisible(true);
 			Frame.ptz.setVisible(true);
-			Frame.canvas_4.setBounds(23, 374, 352, 272); 
-			Frame.canvas_1.setBounds(739, 68, 352, 272);
-			Frame.canvas.setBounds(23, 68, 352, 272);
-			Frame.canvas_2.setBounds(381, 68, 352, 272);
-			Frame.canvas_3.setBounds(381, 374, 352, 272);
-			Frame.canvas_4.setVisible(true);
-			Frame.canvas_1.setVisible(true);
-			Frame.canvas.setVisible(true);
-			Frame.canvas_2.setVisible(true);
-			Frame.canvas_3.setVisible(true);
+			canvas.campanel1.setBounds(23, 374, 352, 272); 
+			canvas.campanel2.setBounds(739, 68, 352, 272);
+			canvas.campanel4.setBounds(23, 68, 352, 272);
+			canvas.campanel3.setBounds(381, 68, 352, 272);
+			canvas.campanel5.setBounds(381, 374, 352, 272);
+			canvas.campanel1.setVisible(true);
+			canvas.campanel2.setVisible(true);
+			canvas.campanel4.setVisible(true);
+			canvas.campanel3.setVisible(true);
+			canvas.campanel5.setVisible(true);
 			Frame.panel.setVisible(false);
 			Frame.panel_1.setVisible(false);
 			Frame.panel_2.setVisible(false);
@@ -611,7 +676,7 @@ public class buttons {
 			Frame.txtvideo.setVisible(true);
 			Frame.suspobj.setVisible(false);
 			Frame.txtsuspobj.setVisible(false);
-			Frame.sosbtn.setVisible(false);
+			sosbtns.sosbtn.setVisible(false);
 			Frame.GPS.setVisible(false);
 			Frame.txtGPS.setVisible(false);
 			Frame.soslog.setVisible(false);
@@ -641,6 +706,14 @@ public class buttons {
 			Frame.txtmsg.setVisible(false);
 			Frame.txtcall.setVisible(false);
 			radar.h.setVisible(false);
+			ptzbtns.left.setVisible(false);
+			ptzbtns.right.setVisible(false);
+			ptzbtns.up.setVisible(false);
+			ptzbtns.down.setVisible(false);
+			videoplay.choose.setVisible(true);
+			videoplay.mannualplay.setVisible(true);
+			 ptzbtns.txtptzstate.setVisible(false);
+			 ptzbtns.toggleButton.setVisible(false);
 		}
 	});    
 	evidence.setBounds(1145, 327, 126, 40);
@@ -660,7 +733,8 @@ public class buttons {
 
 	Frame.frame.getContentPane().add(evidence);
 	
-	JButton sos = new JButton("SOS SIGNAL");
+	 sos = new JButton("SOS SIGNAL");
+	sos.setBorder(BorderFactory.createLineBorder(Color.YELLOW)); 
     sos.addActionListener(new ActionListener() {
 	
 	public void actionPerformed(ActionEvent e) { 
@@ -668,11 +742,11 @@ public class buttons {
 		Frame.txtCamera_1.setVisible(false);
 		Frame.txtCamera_2.setVisible(false);
 		Frame.txtCamera_3.setVisible(false);
-		Frame.canvas.setVisible(false);
-		Frame.canvas_1.setVisible(false);
-		Frame.canvas_2.setVisible(false);
-		Frame.canvas_3.setVisible(false);
-		Frame.canvas_4.setVisible(false);
+		canvas.campanel4.setVisible(false);
+		canvas.campanel2.setVisible(false);
+		canvas.campanel3.setVisible(false);
+		canvas.campanel5.setVisible(false);
+		canvas.campanel1.setVisible(false);
 		Frame.panel.setVisible(false);
 		Frame.panel_1.setVisible(false);
 		Frame.panel_2.setVisible(false);
@@ -700,7 +774,7 @@ public class buttons {
 		Frame.suspobj.setVisible(false);
 		Frame.maindash.setText("SOS SIGNAL");
 		Frame.txtsuspobj.setVisible(false);
-		Frame.sosbtn.setVisible(true);
+		sosbtns.sosbtn.setVisible(true);
 		Frame.GPS.setVisible(true);
 		Frame.txtGPS.setVisible(true);
 		Frame.soslog.setVisible(true);
@@ -729,13 +803,23 @@ public class buttons {
 		Frame.msglog.setVisible(true);
 		Frame.txtmsg.setVisible(true);
 		Frame.txtcall.setVisible(true);
+		radar.h.setVisible(false);
+		ptzbtns.left.setVisible(false);
+		ptzbtns.right.setVisible(false);
+		ptzbtns.up.setVisible(false);
+		ptzbtns.down.setVisible(false);
+		videoplay.choose.setVisible(false);
+		videoplay.mannualplay.setVisible(false);
+		 ptzbtns.txtptzstate.setVisible(false);
+		 ptzbtns.toggleButton.setVisible(false);
 	  }
 });  
-sos.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
-sos.setForeground(Color.YELLOW);
-sos.setBackground(null);
-sos.setBounds(1145, 378, 126, 40);
-sos.addMouseListener(new java.awt.event.MouseAdapter() {
+       sos.setFont(new Font("Bahnschrift", Font.PLAIN, 15));
+       sos.setForeground(Color.YELLOW);
+       sos.setBackground(null);
+       sos.setFocusPainted(false);
+       sos.setBounds(1145, 378, 126, 40);
+       sos.addMouseListener(new java.awt.event.MouseAdapter() {
     public void mouseEntered(java.awt.event.MouseEvent evt) {
     	sos.setBackground(Color.YELLOW);
     	sos.setForeground(Color.BLACK);
@@ -749,8 +833,8 @@ sos.addMouseListener(new java.awt.event.MouseAdapter() {
     }
 });
 
-sos.setVisible(true);
-sos.addActionListener(new ActionListener() {
+        sos.setVisible(true);
+        sos.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
 	}
 });

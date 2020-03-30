@@ -1,13 +1,13 @@
 
 package aiframe;
 
-import java.awt.event.*; 
-import java.awt.*; 
+
+
 import javax.swing.*;
 import java.awt.BasicStroke;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.EventQueue;
+
+
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -16,7 +16,7 @@ import java.awt.Point;
 import java.awt.Polygon;
 import java.awt.RenderingHints;
 import java.awt.Shape;
-import java.awt.Toolkit;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.AffineTransform;
@@ -30,9 +30,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
-import javax.swing.Timer;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 public class radar extends JPanel {
 
@@ -121,8 +118,8 @@ public class radar extends JPanel {
      */
     public void setVariables() {
         minLength = Math.min(h.getWidth(), h.getHeight());
-        spinLineEndPoint = new Point((int) (minLength / 2 * OUTER_CIRCLE_SCALAR), 0);
-        spinLine = new Line2D.Double(origin, spinLineEndPoint);
+       spinLineEndPoint = new Point((int) (minLength / 2 * OUTER_CIRCLE_SCALAR), 0);
+      spinLine = new Line2D.Double(origin, spinLineEndPoint);
         initArc();
     }
 
@@ -130,7 +127,7 @@ public class radar extends JPanel {
      * Creates a timer which is used to update the spin line, and call repaint at every time step.
      */
     public void createTimer() {
-        tim = new Timer(40, new ActionListener() {
+        tim = new Timer(10, new ActionListener() {
 
             public void actionPerformed(ActionEvent e) {
                 updateSpinLine();
@@ -145,7 +142,7 @@ public class radar extends JPanel {
      */
     public void updateVariables() {
         minLength = Math.min(h.getWidth(), h.getHeight());
-        centrePoint = new Point(h.getHeight() / 2, h.getWidth() / 2);
+        centrePoint = new Point(h.getHeight() /1 , h.getWidth() / 2);
         origin = new Point(0, 0);
         updatePlaneArea();
     }
@@ -178,7 +175,7 @@ public class radar extends JPanel {
      */
     public void drawMovingObjects() {
         drawSpinLine();
-        drawArc();
+      drawArc();
     }
 
     /**
@@ -254,15 +251,15 @@ public class radar extends JPanel {
     public void updatePlaneArea() {
         g2.setColor(vibrantGreen);
         //sharp plane
-        int[] t1x = new int[]{0, (int) (-minLength * 0.007), (int) (minLength * 0.007)};
-        int[] t1y = new int[]{0, (int) (minLength * 0.05), (int) (minLength * 0.05)};
-        int[] t2x = new int[]{0, (int) (-minLength * 0.006), (int) (minLength * 0.006)};
-        int[] t2y = new int[]{(int) (minLength * 0.03), (int) (minLength * 0.06), (int) (minLength * 0.06)};
+       int[] t1x = new int[]{0, (int) (-minLength * 0.007), (int) (minLength * 0.007)};
+       int[] t1y = new int[]{0, (int) (minLength * 0.05), (int) (minLength * 0.05)};
+       int[] t2x = new int[]{0, (int) (-minLength * 0.006), (int) (minLength * 0.006)};
+       int[] t2y = new int[]{(int) (minLength * 0.03), (int) (minLength * 0.06), (int) (minLength * 0.06)};
         //fat plane
-//        int[] t1x = new int[]{0, (int) (-minLength * 0.007), (int) (minLength * 0.007)};
-//        int[] t1y = new int[]{0, (int) (minLength * 0.05), (int) (minLength * 0.05)};
-//        int[] t2x = new int[]{0, (int) (-minLength * 0.009), (int) (minLength * 0.009)};
-//        int[] t2y = new int[]{(int) (minLength * 0.01), (int) (minLength * 0.04), (int) (minLength * 0.04)};
+    //   int[] t1x = new int[]{0, (int) (-minLength * 0.007), (int) (minLength * 0.007)};
+     //  int[] t1y = new int[]{0, (int) (minLength * 0.05), (int) (minLength * 0.05)};
+    //  int[] t2x = new int[]{0, (int) (-minLength * 0.009), (int) (minLength * 0.009)};
+     // int[] t2y = new int[]{(int) (minLength * 0.01), (int) (minLength * 0.04), (int) (minLength * 0.04)};
         Shape t1 = new Polygon(t1x, t1y, 3);
         Shape t2 = new Polygon(t2x, t2y, 3);
         Area t1area = new Area(t1);
@@ -280,7 +277,7 @@ public class radar extends JPanel {
         pTransform.rotate(Math.toRadians(60));
         pTransform.translate(centrePoint.x / 2, centrePoint.y / 2);
         g2.setTransform(pTransform);
-//        g2.fill(planeArea);
+//    g2.fill(planeArea);
         Area transPlane = planeArea.createTransformedArea(pTransform);
         g2.setTransform(defaultTransform);
         g2.fill(transPlane);
@@ -300,7 +297,7 @@ public class radar extends JPanel {
             while (!pointChosen) {
                 // Generates a point with coordinates between -600 and 600.
                 randPoint = new Point2D.Double((-1 + Math.random() * 2) * 600 * OUTER_CIRCLE_SCALAR, (-1 + Math.random() * 2) * 600 * OUTER_CIRCLE_SCALAR);
-                System.out.println(randPoint);
+               // System.out.println(randPoint);
                 //Checks if the outside circle contains the point, and if it does, adds that point to the dotArray, and starts finding a new point.
                 if (outsideCircle.contains(randPoint)) {
                     dotArray[i] = randPoint;
@@ -319,7 +316,7 @@ public class radar extends JPanel {
         // Draws circles from the points in the dotArray
         for (Point2D point : dotArray) {
             g2.fill(new Ellipse2D.Double(point.getX(), point.getY(), 10, 10));
-//            g2.draw(new Line2D.Double(origin, point));
+//         g2.draw(new Line2D.Double(origin, point));
         }
         g2.setTransform(defaultTransform);
     }
@@ -399,9 +396,9 @@ public class radar extends JPanel {
 
         Image e = null;
         try {
-            e = ImageIO.read(new File("face.png"));
+           e = ImageIO.read(new File("face.png"));
         } catch (IOException ex) {
-            System.out.println("Image not found");
+           // System.out.println("Image not found");
         }
         g2.drawImage(e, 50, 50, null);
 
@@ -435,15 +432,15 @@ public class radar extends JPanel {
     public void initArc() {
         spinArc = new Arc2D.Double();
         spinArc.setArcByCenter(0, 0, minLength / 2 * OUTER_CIRCLE_SCALAR, 0, 30, Arc2D.PIE);
-//        arcPaint = new GradientPaint((int) (minLength / 2 * 0.9), 0, vibrantGreen, (int) (minLength / 2 * 0.6), (int) (-minLength / 2 * 0.3), new Color(0f, 0f, 0f, 0f));
+       arcPaint = new GradientPaint((int) (minLength / 2 * 0.9), 0, vibrantGreen, (int) (minLength / 2 * 0.6), (int) (-minLength / 2 * 0.3), new Color(0f, 0f, 0f, 0f));
         arcPaint = new GradientPaint(spinArc.getStartPoint(), vibrantGreen, spinArc.getEndPoint(), new Color(0f, 0f, 0f, 0f));
     }
 
     /**
      *  Moves a circle shape from its standard creation position (to the right and below the origin), so that the
      * circle's centre is on the origin.
-     * @param _circle The circle to centre.
-     * @param _fill Whether the circle is to be filled or not.
+     * circle The circle to centre.
+     * fill Whether the circle is to be filled or not.
      */
     public void centreCircle(Shape _circle, boolean _fill) {
         AffineTransform circleTransform = new AffineTransform();
@@ -462,7 +459,7 @@ public class radar extends JPanel {
      * reset the graphics if a different transform is applied.
      */
     public void defaultGraphics() {
-        g2.translate(h.getWidth() / 2, h.getHeight() / 2);
+         g2.translate(h.getWidth() / 2, h.getHeight() / 2);
         defaultTransform = g2.getTransform();
     }
 
@@ -472,7 +469,7 @@ public class radar extends JPanel {
      */
     public void createFrame() {
     	 h = new JInternalFrame();
-        //h.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         h.setBounds(740, 68, 352, 272);
      //   Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
       //  h.setLocation(screenSize.width / 5, screenSize.height / 5);
@@ -486,6 +483,7 @@ public class radar extends JPanel {
         h.setResizable(false);
         h.setVisible(false);
         h.setBorder( null );
+        h.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
         h.putClientProperty("JInternalFrame.isPalette", Boolean.TRUE);
         
         Frame.frame.getContentPane().add(h);

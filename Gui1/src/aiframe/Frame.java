@@ -3,167 +3,65 @@
 package aiframe;
 import java.awt.EventQueue;
 
-import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.text.SimpleDateFormat;
-import javax.imageio.ImageIO;
-
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.applet.*;  
-import java.awt.*;  
-import java.util.*;  
-import java.text.*;
-import java.awt.event.ActionEvent;
-import java.awt.Panel;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.*;
 import javax.swing.*;
-import java.util.Calendar;
-import javafx.scene.image.*;
-import javafx.scene.paint.*; 
-import javax.swing.Timer;
+
 import java.awt.Image;
 import java.awt.Color;
-import java.awt.Component;
+
 import java.awt.Font;
-import java.awt.Image;
-import java.time.format.DateTimeFormatter;  
-import java.time.LocalDateTime;
+
 import java.awt.Canvas;
-import java.awt.TextField;
-import java.awt.Button;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import javax.swing.event.AncestorListener;
-import javax.swing.event.AncestorEvent;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.time.format.DateTimeFormatter;  
-import java.time.LocalDateTime;
-import java.time.*;
-import javax.swing.*;
-import java.io.File;
-import java.net.MalformedURLException;
+
+
 import java.net.URL;
-import javax.media.*;
 
-import java.util.TimerTask;
-import javax.swing.border.BevelBorder;
+
+
 import javax.swing.border.LineBorder;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.net.MalformedURLException;
-import java.net.URL;
-import javax.media.Manager;
-import javax.media.MediaLocator;
-import javax.media.Player;
 
-import javafx.scene.Scene; 
-import javafx.stage.Stage; 
-import javafx.application.Application;  
-import javafx.scene.media.*; 
-import javax.media.CannotRealizeException; 
-import java.io.IOException; 
-import java.awt.Component;
-import java.io.File;  
-import javafx.scene.Group;  
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+
+
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
-import javafx.util.Duration; 
-import javafx.scene.media.Media;  
-import javafx.scene.media.MediaPlayer;  
-import javafx.scene.media.MediaView;
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
-import javafx.stage.Stage;
-import java.awt.Component;
-import java.net.MalformedURLException;
 
 
-import com.sun.jna.Native;
-import com.sun.jna.NativeLibrary;
-
-import uk.co.caprica.vlcj.binding.LibVlc;
-import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
-import uk.co.caprica.vlcj.runtime.RuntimeUtil;
-import uk.co.caprica.vlcj.player.MediaPlayerFactory;
-import uk.co.caprica.vlcj.runtime.RuntimeUtil;
-
-import org.opencv.core.Core.*;
-import org.opencv.core.Mat;
-import org.opencv.highgui.Highgui;
-import org.opencv.highgui.VideoCapture;
-import org.opencv.imgproc.Imgproc;
-import org.opencv.core.CvType;
-import org.opencv.core.MatOfRect;
-import org.opencv.core.Rect;
-import org.opencv.core.Scalar;
-import org.opencv.highgui.VideoCapture;
-import org.opencv.objdetect.CascadeClassifier;
-
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
 
 
-import org.bytedeco.javacv.*;
-import java.util.ArrayList;
-import java.awt.Point;
 
-import static org.bytedeco.javacpp.opencv_core.IplImage;
-import static org.bytedeco.javacpp.opencv_core.cvFlip;
-import static org.bytedeco.javacpp.opencv_imgcodecs.cvSaveImage;
+
+
+
+
+
+
+
+
 
 
 //import io.github.psgs.cctv.gui.GUI;
-import java.awt.image.BufferedImage;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.TimerTask;
 
-import aiframe.CCTV.*;
-import aiframe.test.*;
-import aiframe.RefreshTask.*;
+
+
+
+//import aiframe.test.*;
+
 //import aiframe.CameraPanel.*;
-import aiframe.graph;
+
 import aiframe.Frame;
 import aiframe.canvas;
-import aiframe.evddb.*;
+
 import aiframe.clock;
 import aiframe.cpuload;
-import aiframe.graph;
+
 import aiframe.radar;
-import aiframe.calender.*;
+
 import aiframe.buttons;
 import aiframe.sosbtns;
+import aiframe.webcam;
 
+import aiframe.videoplay;
 
 
 
@@ -229,7 +127,7 @@ public class Frame {
 		public static JTextPane soslog;
 		public static JTextField txtGPS;
 		public static JPanel GPS;
-		public static JButton sosbtn;
+		
 		public static JTextField txtsuspobj;
 		public static JTextField txtobj;
 		public static JTextField txtvideo;
@@ -240,7 +138,7 @@ public class Frame {
 		public static JPanel object;
 		public static JPanel videoplay;
 		public static JPanel suspobj;
-	
+	   public JTextField txtcpu;
 	
 	
 	
@@ -260,18 +158,14 @@ public class Frame {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public Frame() 
+	
+	public Frame() throws Exception 
 	{
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	
+	private void initialize() throws Exception {
 		
 		
 		
@@ -284,26 +178,47 @@ public class Frame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		// test c = new test();
-		new test().hello();
+		new detectOS().getOperatingSystemType();
 		
-		//clock clockcall = new clock();
-		//clock.clock();
-		new clock().clock();
+		new clock().clockmain();
 		
-		new calender().calender();
+		new calender().calendermain();
 		
-	
-		//new graph().graph();
-		
+	    new createfolder().createfoldermain();
+		//new graph().graphmain();
+	//	new videowriter().tmain();
 		new radar().radarmain();
-		
+		new txtcpuram().txtmain();
 		new sosbtns().sosbtnsmain();
-		
-		
+	//	new opencv().main();
+		//new VideoWriter().writermain();
+		//new test().main();
+	    new barcpuram().main(); 
+		//new tesst().vlc();
+		new webcam().webcammain();
+		new canvas().canvasmain();
+		new ptzbtns().ptzbtnsmain();
+	new cpuload().cpuloadmain();
+		//new test1().test1main();
+		//new videoplayer().vdmain();
+	//	new vdo().vdmain();
+	
+	//new test12().tmain();
+	
+		SwingUtilities.invokeLater(null); 
+	    {
+	      
+	      {
+	    	  new videoplay().videomain();
+	      }
+	    }
+    
 		new buttons().buttonsmain();
-	//	new cpuload().cpuload();
-		
+    
+    
+    
+    
+    
 	     txtCamera_2 = new JTextField();
 		txtCamera_2.setForeground(Color.YELLOW);
 		txtCamera_2.setEditable(false);
@@ -361,7 +276,7 @@ public class Frame {
 		
 		 maindash = new JTextField();
 		maindash.setText("MAIN DASHBOARD");
-		maindash.setBounds(750, 22, 300, 29);
+		maindash.setBounds(750, 18, 300, 20);
 		frame.getContentPane().add(maindash);
 		maindash.setColumns(10);
 		    maindash.setForeground(Color.YELLOW);
@@ -374,120 +289,7 @@ public class Frame {
 			
 			
 			
-			 canvas_4 = new Canvas();
 			
-			canvas_4.addMouseListener(new MouseAdapter() 
-			{
-				public void mouseClicked(MouseEvent e)
-				{
-					JFrame canvas_4frame = new JFrame("Camera 4");
-					canvas_4frame.pack();
-					canvas_4frame.getContentPane().setBackground(Color.WHITE);
-					canvas_4frame.setBounds(0, 0, 1200, 700);
-					canvas_4frame.setResizable(false);
-					canvas_4frame.setVisible(true);
-					Canvas canvas_4new = new Canvas();
-					canvas_4new.setBackground(Color.DARK_GRAY);
-					canvas_4frame.getContentPane().add(canvas_4new);
-					
-				}
-			});
-			canvas_4.setBackground(Color.DARK_GRAY);
-			canvas_4.setBounds(23, 374, 352, 272); 
-		
-			 Frame.frame.getContentPane().add(canvas_4);
-			
-			 canvas_1 = new Canvas();
-			canvas_1.addMouseListener(new MouseAdapter() 
-			{
-				public void mouseClicked(MouseEvent e)
-				{
-					
-					JFrame canvas_1frame = new JFrame("Camera 1");
-					canvas_1frame.pack();
-					canvas_1frame.getContentPane().setBackground(Color.WHITE);
-					canvas_1frame.setBounds(0, 0, 1200, 700);
-					canvas_1frame.setResizable(false);
-					canvas_1frame.setVisible(true);
-					Canvas canvas_1new = new Canvas();
-					canvas_1new.setBackground(Color.DARK_GRAY);
-					canvas_1frame.getContentPane().add(canvas_1new);
-					
-				}
-			});
-			canvas_1.setBackground(Color.DARK_GRAY);
-			canvas_1.setBounds(739, 68, 352, 272);
-			Frame.frame.getContentPane().add(canvas_1);
-			
-			 canvas_2 = new Canvas();
-			canvas_2.addMouseListener(new MouseAdapter() 
-			{
-				public void mouseClicked(MouseEvent e)
-				{
-					JFrame canvas_2frame = new JFrame("Camera 2");
-					canvas_2frame.pack();
-					canvas_2frame.getContentPane().setBackground(Color.WHITE);
-					canvas_2frame.setBounds(0, 0, 1200, 700);
-					canvas_2frame.setResizable(false);
-					canvas_2frame.setVisible(true);
-					Canvas canvas_2new = new Canvas();
-					canvas_2new.setBackground(Color.DARK_GRAY);
-					canvas_2frame.getContentPane().add(canvas_2new);
-					
-				}
-			});
-			canvas_2.setBackground(Color.DARK_GRAY);
-			canvas_2.setBounds(381, 68, 352, 272);
-			Frame.frame.getContentPane().add(canvas_2);
-			
-			
-			
-			 canvas = new Canvas();
-			canvas.setBounds(23, 68, 352, 272);
-			canvas.addMouseListener(new MouseAdapter() 
-			{
-				public void mouseClicked(MouseEvent e)
-				{
-					JFrame canvasframe = new JFrame("Camera 0");
-					canvasframe.pack();
-					canvasframe.getContentPane().setBackground(Color.WHITE);
-					canvasframe.setBounds(0, 0, 1200, 700);
-					canvasframe.setResizable(false);
-					canvasframe.setVisible(true);
-					Canvas canvasnew = new Canvas();
-					canvasnew.setBackground(Color.DARK_GRAY);
-					canvasframe.getContentPane().add(canvasnew);
-					
-				}
-			});
-			canvas.setBackground(Color.DARK_GRAY);
-		    Frame.frame.getContentPane().add(canvas);
-		
-		 canvas_3 = new Canvas();
-		
-		canvas_3.addMouseListener(new MouseAdapter() 
-		{
-			
-			public void mouseClicked(MouseEvent e)
-			{
-				JFrame canvas_3frame = new JFrame("Camera 3");
-				canvas_3frame.pack();
-				canvas_3frame.getContentPane().setBackground(Color.WHITE);
-				canvas_3frame.setBounds(0, 0, 1200, 700);
-				canvas_3frame.setResizable(false);
-				canvas_3frame.setVisible(true);
-				Canvas canvas_3new = new Canvas();
-				canvas_3new.setBackground(Color.BLACK);
-				canvas_3frame.getContentPane().add(canvas_3new);
-			
-			}
-		});
-		canvas_3.setBackground(Color.DARK_GRAY);
-		
-		canvas_3.setBounds(381, 374, 352, 272);
-		
-		
-		frame.getContentPane().add(canvas_3);
 		
 		
 		
@@ -742,79 +544,16 @@ public class Frame {
     	graphhold.setBounds(740, 374, 352, 272);
     	graphhold.setVisible(true);
 		 
-    	//ImageIcon imageIcon = new ImageIcon("./img/imageName.png"); // load the image to a imageIcon
-    	//Image image = imageIcon.getImage(); // transform it 
-    	//Image newimg = image.getScaledInstance(120, 120,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
-    	//imageIcon = new ImageIcon(newimg)
-		
-		
-		
-		
-    	//Image radarimg = new ImageIcon(this.getClass().getResource("/radar.png")).getImage();
-    	//JLabel radar=new JLabel(icon);
-		//radar.setIcon(new ImageIcon(radarimg));
-		//radar.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
-    	//frame.getContentPane().add(radar);
-    	//radar.setBackground(Color.BLACK);
-		//radar.setBounds(662, 63, 430, 229);
-	    //radar.setVisible(false);
-	   
-	  /*  MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory();
-	    CanvasVideoSurface videoSurface = mediaPlayerFactory.newVideoSurface(radar);
-	    EmbeddedMediaPlayer mediaPlayer = mediaPlayerFactory.newEmbeddedMediaPlayer();
-	    mediaPlayer.setVideoSurface(videoSurface);
-	    MediaListPlayer mediaListPlayer = mediaPlayerFactory.newMediaListPlayer();
-	    MediaList mediaList = mediaPlayerFactory.newMediaList(); */
-	    
-		 
+
 		
 	 
-	/*	class MediaPlayer  {
-	    	public  MediaPlayer(URL mediauUrl) {
-	    	
-	    	   try  {
-	    		   Player mediaPlayer=Manager.createRealizedPlayer(new MediaLocator(mediauUrl));
-	    		   Component video=mediaPlayer.getVisualComponent();	    		    
-	    		   Component control=mediaPlayer.getControlPanelComponent();
-	    		  add(video, BorderLayout.CENTER);
-	    		   add(control, BorderLayout.SOUTH); 
-	    		   mediaPlayer.start();
-	    	   }
-	    	   catch (Exception e) {}
-	    	   finally {}
-	    	   JFileChooser fileChooser = new JFileChooser();
-	    	   fileChooser.showOpenDialog(null);
-	    	   File file = new File("C:\\Users\\Pratish\\Downloads\\Video\\radar.mp4"); 
-	    	   URL mediaUrl=null;
-	    	   try {
-	    		   
-	    		   mediaUrl = fileChooser.getSelectedFile().toURI().toURL();
-	    	   }
-	    	   catch (MalformedURLException ex) {System.out.println(ex);}
-	    	   finally {}
-	    	}
-	    	{
+	
 		    	
 	    		
 	    		
 	    		
-	    		
-	    		MediaPlayer mediaPanel = new MediaPlayer( mediaUrl );
-	    		frame.add( mediaPanel );
-		        mediaPanel.setVisible( true );
-			    } 
-	    }*/
 	    
 	   
-		/*JPanel test= new JPanel();
-    	frame.getContentPane().add(test);
-    	test.setBackground(Color.BLACK);
-		test.setBounds(521, 96, 500, 400);
-	    test.setVisible(true);
-	    test.setImage();
-		
-		*/
-	 
 	   
 	
 		
@@ -1010,16 +749,7 @@ public class Frame {
 		txtmsg.setBackground(null);
 		
 		
-		 sosbtn = new JButton("SOS");
-		sosbtn.setForeground(Color.YELLOW);
-		sosbtn.setBackground(null);
-		sosbtn.setFont(new Font("Bahnschrift", Font.PLAIN, 50));
-		sosbtn.setBounds(830, 100, 180, 180);
-		sosbtn.setBackground(Color.red);
-		sosbtn.setForeground(Color.BLACK);
-		
-		sosbtn.setVisible(false);
-		frame.getContentPane().add(sosbtn);
+		 
 		 
 		    
 		   
@@ -1053,25 +783,7 @@ public class Frame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		JTextField company = new JTextField();
+	 JTextField company = new JTextField();
 		company.setText("INDIGENOUS ROBOTIC UNMANNED SYSTEMS [IRUS]");
 		company.setBounds(10, 670, 500, 40);
 		company.setFont(new Font("Bahnschrift", Font.PLAIN, 20));
@@ -1102,8 +814,10 @@ public class Frame {
 		
 	
 	textField_4 = new JTextField();
-	textField_4.setText("NOTIFICATIONS LOG");
-	textField_4.setBounds(450, 38, 283, 20);
+	//textField_4.setText("NOTIFICATIONS LOG");
+	textField_4.setText("ALL CAMERAS CONNECTED");
+	textField_4.setHorizontalAlignment(JTextField.CENTER);
+	textField_4.setBounds(750, 40, 283, 20);
 	frame.getContentPane().add(textField_4);
 	textField_4.setColumns(10);
 	textField_4.setForeground(Color.YELLOW);
@@ -1114,33 +828,9 @@ public class Frame {
 	textField_4.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 	textField_4.setBackground(null);
  	
-	JTextField cpuload = new JTextField();
-	cpuload.setText("CPU LOAD");
-	cpuload.setBounds(490, 17, 95, 20);
-	frame.getContentPane().add(cpuload);
-	cpuload.setColumns(10);
-	cpuload.setForeground(Color.YELLOW);
-	cpuload.setVisible(true);
-	cpuload.setEditable(false);
-	cpuload.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
-	cpuload.setHighlighter( null );
-	cpuload.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
-	cpuload.setBackground(null);
-	
-	JTextField ramload = new JTextField();
-	ramload.setBounds(590, 17, 101, 20);
-	ramload.setText("RAM LOAD");
-	frame.getContentPane().add(ramload);
-	ramload.setColumns(10);
-	ramload.setForeground(Color.YELLOW);
-	ramload.setVisible(true);
-	ramload.setEditable(false);
-	ramload.setFont(new Font("Bahnschrift", Font.PLAIN, 18));
-	ramload.setHighlighter( null );
-	ramload.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
-	ramload.setBackground(null);
 	
 	
+
 	
 	
 	

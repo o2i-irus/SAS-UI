@@ -2,8 +2,16 @@ package aiframe;
 
 import java.awt.Color;
 import java.awt.Font;
-
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
+import javax.swing.BorderFactory;
+import javax.swing.Icon;
+import java.awt.geom.*;
 
 public class sosbtns {
 	
@@ -25,6 +33,10 @@ public class sosbtns {
 	public static JButton callbtn7;
 	public static JButton callbtn8;
 	public static JButton callbtn9;
+	public static JButton sosbtn;
+	
+	
+
 	
 	public void sosbtnsmain() 
 	{
@@ -34,6 +46,8 @@ public class sosbtns {
 		msgbtn1.setForeground(Color.YELLOW);
 		msgbtn1.setBounds(773, 640, 138, 35);
 		msgbtn1.setVisible(false);
+		msgbtn1.setFocusPainted(false);
+		msgbtn1.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(msgbtn1);
 		
 		
@@ -43,6 +57,8 @@ public class sosbtns {
 		msgbtn2.setForeground(Color.YELLOW);
 		msgbtn2.setBounds(773, 600, 138, 35);
 		msgbtn2.setVisible(false);
+		msgbtn2.setFocusPainted(false);
+		msgbtn2.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(msgbtn2);
 		
 		
@@ -52,6 +68,8 @@ public class sosbtns {
 		msgbtn3.setForeground(Color.YELLOW);
 		msgbtn3.setBounds(773, 560, 138, 35);
 		msgbtn3.setVisible(false);
+		msgbtn3.setFocusPainted(false);
+		msgbtn3.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(msgbtn3);
 		
 		 msgbtn4 = new JButton("X");
@@ -60,6 +78,8 @@ public class sosbtns {
 		msgbtn4.setForeground(Color.YELLOW);
 		msgbtn4.setBounds(773, 520, 138, 35);
 		msgbtn4.setVisible(false);
+		msgbtn4.setFocusPainted(false);
+		msgbtn4.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(msgbtn4);
 		
 		 msgbtn5 = new JButton("X");
@@ -68,6 +88,8 @@ public class sosbtns {
 		msgbtn5.setForeground(Color.YELLOW);
 		msgbtn5.setBounds(773, 480, 138, 35);
 		msgbtn5.setVisible(false);
+		msgbtn5.setFocusPainted(false);
+		msgbtn5.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(msgbtn5);
 		
 		 msgbtn6 = new JButton("X");
@@ -76,6 +98,8 @@ public class sosbtns {
 		msgbtn6.setForeground(Color.YELLOW);
 		msgbtn6.setBounds(773, 440, 138, 35);
 		msgbtn6.setVisible(false);
+		msgbtn6.setFocusPainted(false);
+		msgbtn6.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(msgbtn6);
 		
 		 msgbtn7 = new JButton("X");
@@ -84,6 +108,8 @@ public class sosbtns {
 		msgbtn7.setForeground(Color.YELLOW);
 		msgbtn7.setBounds(773, 400, 138, 35);
 		msgbtn7.setVisible(false);
+		msgbtn7.setFocusPainted(false);
+		msgbtn7.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(msgbtn7);
 		
 		 msgbtn8 = new JButton("HOSPITAL");
@@ -92,6 +118,8 @@ public class sosbtns {
 		msgbtn8.setForeground(Color.YELLOW);
 		msgbtn8.setBounds(773, 360, 138, 35);
 		msgbtn8.setVisible(false);
+		msgbtn8.setFocusPainted(false);
+		msgbtn8.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(msgbtn8);
 		
 		 msgbtn9 = new JButton("AMBULANCE");
@@ -100,6 +128,8 @@ public class sosbtns {
 		msgbtn9.setForeground(Color.YELLOW);
 		msgbtn9.setBounds(773, 320, 138, 35);
 		msgbtn9.setVisible(false);
+		msgbtn9.setFocusPainted(false);
+		msgbtn9.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(msgbtn9);
 		
 		
@@ -111,6 +141,8 @@ public class sosbtns {
 		callbtn1.setForeground(Color.YELLOW);
 		callbtn1.setBounds(920, 640, 138, 35);
 		callbtn1.setVisible(false);
+		callbtn1.setFocusPainted(false);
+		callbtn1.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(callbtn1);
 		
 		
@@ -120,6 +152,8 @@ public class sosbtns {
 		callbtn2.setForeground(Color.YELLOW);
 		callbtn2.setBounds(920, 600, 138, 35);
 		callbtn2.setVisible(false);
+		callbtn2.setFocusPainted(false);
+		callbtn2.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(callbtn2);
 		
 		
@@ -129,6 +163,8 @@ public class sosbtns {
 		callbtn3.setForeground(Color.YELLOW);
 		callbtn3.setBounds(920, 560, 138, 35);
 		callbtn3.setVisible(false);
+		callbtn3.setFocusPainted(false);
+		callbtn3.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(callbtn3);
 		
 		 callbtn4 = new JButton("X");
@@ -137,6 +173,8 @@ public class sosbtns {
 		callbtn4.setForeground(Color.YELLOW);
 		callbtn4.setBounds(920, 520, 138, 35);
 		callbtn4.setVisible(false);
+		callbtn4.setFocusPainted(false);
+		callbtn4.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(callbtn4);
 		
 		 callbtn5 = new JButton("X");
@@ -145,6 +183,8 @@ public class sosbtns {
 		callbtn5.setForeground(Color.YELLOW);
 		callbtn5.setBounds(920, 480, 138, 35);
 		callbtn5.setVisible(false);
+		callbtn5.setFocusPainted(false);
+		callbtn5.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(callbtn5);
 		
 		 callbtn6 = new JButton("X");
@@ -153,6 +193,8 @@ public class sosbtns {
 		callbtn6.setForeground(Color.YELLOW);
 		callbtn6.setBounds(920, 440, 138, 35);
 		callbtn6.setVisible(false);
+		callbtn6.setFocusPainted(false);
+		callbtn6.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(callbtn6);
 		
 		 callbtn7 = new JButton("X");
@@ -161,6 +203,8 @@ public class sosbtns {
 		callbtn7.setForeground(Color.YELLOW);
 		callbtn7.setBounds(920, 400, 138, 35);
 		callbtn7.setVisible(false);
+		callbtn7.setFocusPainted(false);
+		callbtn7.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(callbtn7);
 		
 		 callbtn8 = new JButton("HOSPITAL");
@@ -169,6 +213,8 @@ public class sosbtns {
 		callbtn8.setForeground(Color.YELLOW);
 		callbtn8.setBounds(920, 360, 138, 35);
 		callbtn8.setVisible(false);
+		callbtn8.setFocusPainted(false);
+		callbtn8.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(callbtn8);
 		
 		 callbtn9 = new JButton("AMBULANCE");
@@ -177,7 +223,37 @@ public class sosbtns {
 		callbtn9.setForeground(Color.YELLOW);
 		callbtn9.setBounds(920, 320, 138, 35);
 		callbtn9.setVisible(false);
+		callbtn9.setFocusPainted(false);
+		callbtn9.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 		Frame.frame.getContentPane().add(callbtn9);
+		
+		
+		
+		 
+	
+			//ImageIcon b = new ImageIcon(this.getClass().getResource("/redd.png"));
+		
+		sosbtn = new JButton("SOS" );
+		
+		
+		//sosbtn.setBorderPainted(false);
+	//	sosbtn.setContentAreaFilled(false);
+		//sosbtn.setFocusPainted(false);
+		//sosbtn.setOpaque(false);
+		//sosbtn.setForeground(Color.YELLOW);
+		//sosbtn.setBackground(null);
+		sosbtn.setFont(new Font("Bahnschrift", Font.PLAIN, 50));
+		sosbtn.setBounds(830, 100, 180, 180);
+		sosbtn.setBackground(Color.red);
+		sosbtn.setForeground(Color.BLACK);
+		
+		sosbtn.setVisible(false);
+		
+		Frame.frame.getContentPane().add(sosbtn);
+		
+		
+		
+		
 	}
 
 }

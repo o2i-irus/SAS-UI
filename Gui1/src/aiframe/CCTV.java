@@ -1,8 +1,8 @@
 package aiframe;
 
 
-import aiframe.Frame;
-import javax.swing.JPanel;
+
+
 import java.util.Timer;
 
 public class CCTV {

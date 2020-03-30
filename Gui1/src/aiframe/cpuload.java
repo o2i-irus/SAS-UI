@@ -1,54 +1,95 @@
 package aiframe;
-import java.lang.management.*;
-import java.io.File;
+
+
+
 import java.lang.management.ManagementFactory;
 //import java.lang.management.OperatingSystemMXBean;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.lang.management.RuntimeMXBean;
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import java.io.LineNumberReader;
-import java.lang.management.ManagementFactory;
+
+import java.awt.Color;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import com.sun.management.OperatingSystemMXBean;
-import java.lang.management.ManagementFactory;
-import java.util.Random;
-import aiframe.test;
-public class cpuload {
-public void cpuload()
+
+
+import javax.swing.Timer;
+//import java.util.TimerTask; 
+
+import javax.swing.BorderFactory;
+
+
+public class cpuload 
 {
-	ThreadMXBean TMB = ManagementFactory.getThreadMXBean();
-	long time = new Date().getTime() * 1000000;
-	long cput = 0;
-	double cpuperc = -1;
-	 
-	//Begin loop.
-	 
-	if( TMB.isThreadCpuTimeSupported() )
-	{
-	        if(new Date().getTime() * 1000000 - time > 1000000000) //Reset once per second
-	        {
-	            time = new Date().getTime() * 1000000;
-	            cput = TMB.getCurrentThreadCpuTime();
-	        }
-	                     
-	        if(!TMB.isThreadCpuTimeEnabled())
-	        {
-	            TMB.setThreadCpuTimeEnabled(true);
-	        }
-	                     
-	        if(new Date().getTime() * 1000000 - time != 0)
-	            cpuperc = (TMB.getCurrentThreadCpuTime() - cput) / (new Date().getTime() * 1000000.0 - time) * 100.0;               
-	}
-	else
-	{
-	    cpuperc = -2;
-	}
-	 
-	//Do cpu intensive stuff
-	 
-	//End Loop
 	
-}
+
+	public static double dcpu;
+	public static int icpu;
+	public static String scpu;
+	
+	public static double dram;
+	public static int iram;
+	public static String sram;
+	
+	
+	
+   public void cpuloadmain()
+   { 
+	   
+	   
+	   OperatingSystemMXBean osBean = ManagementFactory.getPlatformMXBean(OperatingSystemMXBean.class);
+	
+	   Timer timer = new Timer(1000, new ActionListener() {
+	        @Override
+	        public void actionPerformed(ActionEvent e) {
+	        	double a = (osBean.getProcessCpuLoad()*100);
+	        	 double b = (osBean.getSystemCpuLoad()*100);
+	        		dcpu = (osBean.getSystemCpuLoad()*100);
+	        		icpu = (int)dcpu;
+	        		scpu= String.valueOf(icpu);
+	        	    dram = ((osBean.getTotalPhysicalMemorySize()-(osBean.getFreePhysicalMemorySize()))*0.0000000000931*100);
+	        	    iram = (int)dram;
+	        	    sram = String.valueOf(iram);
+	        	    txtcpuram.txtram.setText(sram + "%");
+	        	    barcpuram.cpumeter.setValue(icpu);
+	        	    if(icpu > 80) 
+	        	    { 
+	        	    	barcpuram.cpumeter.setForeground(Color.RED);
+	        	    	barcpuram.cpumeter.setBorder(BorderFactory.createLineBorder(Color.RED));
+	        	    }
+	        	    else
+	        	    {
+	        	    	barcpuram.cpumeter.setForeground(Color.YELLOW);
+	        	    	barcpuram.cpumeter.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+	        	    }
+	        	    txtcpuram.txtcpu.setText(scpu + "%");
+	        	    barcpuram.rammeter.setValue(iram);
+	        	    if(iram>80)
+	        	    {
+	        	    	barcpuram.rammeter.setForeground(Color.RED);
+	        	    	barcpuram.rammeter.setBorder(BorderFactory.createLineBorder(Color.RED));
+	        	    }
+	        	    else 
+	        	    {
+	        	    	barcpuram.rammeter.setForeground(Color.YELLOW);
+	        	    	barcpuram.rammeter.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+	        	    }
+	        }
+	    });
+		timer.setRepeats(true);
+		 timer.setCoalesce(true);
+	     timer.start();
+	   
+	   
+	   
+	   
+	  
+	 
+	 
+	    
+ 
+    
+    
+   
+   }  
 }
