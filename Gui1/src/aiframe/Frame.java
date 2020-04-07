@@ -3,70 +3,26 @@
 package aiframe;
 import java.awt.EventQueue;
 
-
 import javax.swing.*;
 
-import java.awt.Image;
 import java.awt.Color;
-
 import java.awt.Font;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.Canvas;
-
-
-
 import java.net.URL;
 
-
-
-import javax.swing.border.LineBorder;
-
-
-
 import javafx.scene.media.MediaPlayer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//import io.github.psgs.cctv.gui.GUI;
-
-
-
-
-
-//import aiframe.test.*;
-
-//import aiframe.CameraPanel.*;
-
 import aiframe.Frame;
 import aiframe.canvas;
-
 import aiframe.clock;
 import aiframe.cpuload;
-
 import aiframe.radar;
-
 import aiframe.buttons;
 import aiframe.sosbtns;
-import aiframe.webcam;
-
-import aiframe.videoplay;
-
-
-
-
-
+import aiframe.RTSPstream;
 
 
 public class Frame {
@@ -102,13 +58,7 @@ public class Frame {
 		public static JTextField textField_5;
 		public static JTextField textField_6;
 		public static JTextField textField_7;
-		public static JPanel panel;
-		public static JPanel panel_1;
-		public static JPanel panel_2;
-		public static JPanel panel_3;
-		public static JPanel panel_4;
-		public static JPanel panel_5;
-		public static JLayeredPane layeredPane;
+		
 		public static JTextField maindash;
 		public static Canvas canvas;
 		public static Canvas canvas_1;
@@ -117,7 +67,7 @@ public class Frame {
 		public static Canvas canvas_4;
 		public static JTextField ptz;
 		
-		public static JLabel graphhold;
+	
 		public static JTextPane callog;
 		public static JTextPane msglog;
 		public static JTextField txtmsg;
@@ -139,23 +89,40 @@ public class Frame {
 		public static JPanel videoplay;
 		public static JPanel suspobj;
 	   public JTextField txtcpu;
-	
-	
-	
+	public static JLabel imageholder;
+
 	
 
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
+		
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					Frame window = new Frame();
-					window.frame.setVisible(true);
+					Frame.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
+		
+		
+		
+		   
+		      
+		    try { 
+		    	new RTSPstream().main();   
+		    } catch(Exception ex) {ex.printStackTrace();}
+			      
+		     
+		    
+		
+		   
+		
+		
 	}
 
 	
@@ -178,43 +145,56 @@ public class Frame {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		new detectOS().getOperatingSystemType();
 		
+		
+		
+		
+		new detectOS();
+		detectOS.getOperatingSystemType();
+		new createfolder().createfoldermain();
 		new clock().clockmain();
-		
-		new calender().calendermain();
-		
-	    new createfolder().createfoldermain();
+        new calender();
+		calender.calendermain();
+		new meterradar().main();
+	    
+				
 		//new graph().graphmain();
 	//	new videowriter().tmain();
-		new radar().radarmain();
-		new txtcpuram().txtmain();
+	new 	radar().radarmain();
+	new txtcpuram().txtmain();
 		new sosbtns().sosbtnsmain();
-	//	new opencv().main();
+		//new opencv().main();
 		//new VideoWriter().writermain();
 		//new test().main();
 	    new barcpuram().main(); 
 		//new tesst().vlc();
-		new webcam().webcammain();
+		//new webcam().webcammain();
+	   
 		new canvas().canvasmain();
+	
 		new ptzbtns().ptzbtnsmain();
-	new cpuload().cpuloadmain();
+	    new cpuload().cpuloadmain();
+	   
 		//new test1().test1main();
 		//new videoplayer().vdmain();
 	//	new vdo().vdmain();
 	
 	//new test12().tmain();
+	//    new graph().main();	  
 	
 		SwingUtilities.invokeLater(null); 
-	    {
+	  {
 	      
-	      {
+	     {
 	    	  new videoplay().videomain();
-	      }
+	   
+		      
+	    }
 	    }
     
-		new buttons().buttonsmain();
-    
+	    new togglebtn().main();
+	   new buttons().buttonsmain();
+		
     
     
     
@@ -436,113 +416,22 @@ public class Frame {
 			frame.getContentPane().add(suspobj);
 		    
 		
-		 layeredPane = new JLayeredPane();
-		layeredPane.setBorder(new LineBorder(new Color(225, 225, 225), 2));
-		
-		layeredPane.setBounds(1145, 425, 126, 212);
-		layeredPane.setVisible(false);
-		
-		
-		frame.getContentPane().add(layeredPane);
-		
-		int p=800;
-		
-		 panel = new JPanel();
-		if (p>=500)
-		{
-			panel.setBackground(new Color(255, 0, 0));
-		}
-		else 
-		{
-		    panel.setBackground(Color.LIGHT_GRAY);
-		}
-		panel.setBounds(10, 11, 106, 23);
-		panel.setVisible(false);
-		layeredPane.add(panel);
-		
-		
-		
-		
-		 panel_1 = new JPanel();
-		if (p>=400)
-		{
-			panel_1.setBackground(new Color(255, 140, 0));
-		}
-		else 
-		{
-		    panel_1.setBackground(Color.LIGHT_GRAY);
-		}
-	    panel_1.setBounds(10, 45, 106, 23);
-		panel_1.setVisible(false);
-		layeredPane.add(panel_1);
-		
-		 panel_2 = new JPanel();
-		if (p>250)
-		{
-			panel_2.setBackground(Color.YELLOW);
-		}
-		else 
-		{
-		    panel_2.setBackground(Color.LIGHT_GRAY);
-		}
-		panel_2.setBounds(10, 79, 106, 23);
-		panel_2.setVisible(false);
-		layeredPane.add(panel_2);
-		
-		 panel_3 = new JPanel();
-		if (p>=150)
-		{
-			panel_3.setBackground(new Color(0, 255, 0));
-		}
-		else 
-		{
-		    panel_3.setBackground(Color.LIGHT_GRAY);
-		}
-		
-		panel_3.setBounds(10, 113, 106, 23);
-		layeredPane.add(panel_3);
-		panel_3.setVisible(false);
-		
-		 panel_4 = new JPanel();
-		if (p>=100)
-		{
-			panel_4.setBackground(new Color(0, 204, 0));
-		}
-		else 
-		{
-		    panel_4.setBackground(Color.LIGHT_GRAY);
-		}
-		panel_4.setBounds(10, 147, 106, 23);
-		panel_4.setVisible(false);
-		layeredPane.add(panel_4);
-		
-		 panel_5 = new JPanel();
-		if (p>=50)
-		{
-			panel_5.setBackground(new Color(0, 204, 0));
-		}
-		else 
-		{
-		    panel_5.setBackground(Color.LIGHT_GRAY);
-		}
-		panel_5.setBounds(10, 181, 106, 23);
-		layeredPane.add(panel_5);
-		panel_5.setVisible(false);
+		 
 		 
 		
-		ImageIcon graph = new ImageIcon("graph.png");
+		//ImageIcon graph = new ImageIcon("graph.png");
 		
 
-		Image graphimg = new ImageIcon(this.getClass().getResource("/graph.png")).getImage();
-		Image gr = graphimg.getScaledInstance(400, 300,  java.awt.Image.SCALE_SMOOTH);
+		//Image graphimg = new ImageIcon(this.getClass().getResource("/graph.png")).getImage();
+		//Image gr = graphimg.getScaledInstance(400, 300,  java.awt.Image.SCALE_SMOOTH);
 		//ImageIcon newgraph = new ImageIcon(newimg);
-	    graphhold=new JLabel();
-		graphhold.setIcon(new ImageIcon(gr));
-		graphhold.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
-    	frame.getContentPane().add(graphhold);
-    	graphhold.setBackground(Color.BLACK);
-    	graphhold.setBounds(740, 374, 352, 272);
-    	graphhold.setVisible(true);
+	  // JPanel graphhold = new JPanel();
+		//graphhold.setIcon(new ImageIcon(gr));
+	//	graphhold.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+    	//frame.getContentPane().add(graphhold);
+    	//graphhold.setBackground(Color.BLACK);
+    	//graphhold.setBounds(740, 374, 352, 272);
+    	//graphhold.setVisible(true);
 		 
 
 		
@@ -815,7 +704,7 @@ public class Frame {
 	
 	textField_4 = new JTextField();
 	//textField_4.setText("NOTIFICATIONS LOG");
-	textField_4.setText("ALL CAMERAS CONNECTED");
+	textField_4.setText("NOTIFICATIONS");
 	textField_4.setHorizontalAlignment(JTextField.CENTER);
 	textField_4.setBounds(750, 40, 283, 20);
 	frame.getContentPane().add(textField_4);
@@ -828,6 +717,12 @@ public class Frame {
 	textField_4.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
 	textField_4.setBackground(null);
  	
+	// imageholder = new JLabel();
+	//imageholder.setBorder(BorderFactory.createLineBorder(Color.red));
+	//imageholder.setBounds(23, 68, 352, 272);
+	//imageholder.setVisible(true);
+	//frame.getContentPane().add(imageholder);
+	
 	
 	
 

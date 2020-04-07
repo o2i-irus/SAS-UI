@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="img"/>
+	<classpathentry kind="src" path="py"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -41,7 +42,6 @@
 	<classpathentry kind="lib" path="D:/JREs/javafx.controls.jar"/>
 	<classpathentry kind="lib" path="D:/JREs/javafx-swt.jar"/>
 	<classpathentry kind="lib" path="D:/JREs/bridj-0.7.0.jar"/>
-	<classpathentry kind="lib" path="D:/JREs/slf4j-api-1.7.2.jar"/>
 	<classpathentry kind="lib" path="D:/JREs/webcam-capture-0.3.12.jar"/>
 	<classpathentry kind="lib" path="D:/JREs/gradle-wrapper.jar"/>
 	<classpathentry kind="lib" path="D:/JREs/javacv.jar"/>
@@ -50,6 +50,9 @@
 	<classpathentry kind="lib" path="D:/JREs/jfreechart.jar"/>
 	<classpathentry kind="lib" path="D:/JREs/opencv-2.4.1.jar"/>
 	<classpathentry kind="lib" path="D:/JREs/vlcj-3.0.1.jar"/>
-	<classpathentry kind="lib" path="D:/JREs/sigar-1.6.4.jar"/>
+	<classpathentry kind="lib" path="D:/JREs/jython-2.5.jar"/>
+	<classpathentry kind="lib" path="D:/JREs/slf4j-api-1.7.2.jar"/>
+	<classpathentry kind="lib" path="D:/JREs/logback-classic-1.0.0.jar"/>
+	<classpathentry kind="lib" path="D:/JREs/logback-core-1.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

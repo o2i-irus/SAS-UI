@@ -1,5 +1,5 @@
 package aiframe;
-
+import aiframe.RTSPstream;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -18,7 +18,11 @@ public class buttons {
 	public static JButton btnIVehicleID;
 	public static JButton evidence;
 	public static JButton sos;
+	
 	public void buttonsmain() {
+		
+		
+		
 	    dash = new JButton("DASHBOARD");
 		dash.setForeground(Color.YELLOW);
 		dash.setBackground(null);
@@ -27,13 +31,13 @@ public class buttons {
 		dash.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Frame.panel_1.setVisible(false);
-				Frame.panel_2.setVisible(false);
-				Frame.panel_3.setVisible(false);
-				Frame.panel_4.setVisible(false);
-				 Frame.panel_5.setVisible(false);
+				meterradar.panel_1.setVisible(false);
+				meterradar.panel_2.setVisible(false);
+				meterradar.panel_3.setVisible(false);
+				meterradar.panel_4.setVisible(false);
+				meterradar.panel_5.setVisible(false);
 
-				Frame.layeredPane.setVisible(false);
+				meterradar.layeredPane.setVisible(false);
 				Frame.txtVehicleNumber.setVisible(false);
 				Frame.txtOwnersName.setVisible(false);
 				Frame.txtRcAddress.setVisible(false);
@@ -46,7 +50,7 @@ public class buttons {
 				canvas.campanel4.setBounds(23, 68, 352, 272);
 				canvas.campanel3.setBounds(381, 68, 352, 272);
 				canvas.campanel2.setBounds(739, 68, 352, 272);
-			canvas.campanel1.setBounds(23, 374, 352, 272);
+			    canvas.campanel1.setBounds(23, 374, 352, 272);
 				canvas.campanel5.setBounds(381, 374, 352, 272);
 				Frame.txtCamera.setBounds(150, 346, 130, 20);
 				Frame.txtCamera_3.setBounds(500, 346, 135, 20);
@@ -97,8 +101,8 @@ public class buttons {
 					sosbtns.callbtn7.setVisible(false);
 					sosbtns.callbtn8.setVisible(false);
 					sosbtns.callbtn9.setVisible(false);
-				Frame.graphhold.setBounds(740, 374, 352, 272);
-				Frame.graphhold.setVisible(true);
+				//graph.graphhold.setBounds(740, 374, 352, 272);
+				//graph.graphhold.setVisible(true);
 				Frame.callog.setVisible(false);
 				Frame.msglog.setVisible(false);
 				Frame.txtmsg.setVisible(false);
@@ -112,6 +116,12 @@ public class buttons {
 			  videoplay.mannualplay.setVisible(false);
 			  ptzbtns.txtptzstate.setVisible(false);
 			  ptzbtns.toggleButton.setVisible(false);
+			  canvas.campanel1p.setVisible(false);
+			  canvas.campanel2p.setVisible(false);
+			  canvas.campanel3p.setVisible(false);
+			  canvas.campanel4p.setVisible(false);
+			  canvas.campanel5p.setVisible(false);
+			 togglebtn.camtog.setVisible(true);
 
 			}
 		});
@@ -147,14 +157,14 @@ public class buttons {
 			
 			public void actionPerformed(ActionEvent e) { 
 
-				Frame.panel.setVisible(false);
-				Frame.panel_1.setVisible(false);
-				Frame.panel_2.setVisible(false);
-				Frame.panel_3.setVisible(false);
-				Frame.panel_4.setVisible(false);
-				Frame.panel_5.setVisible(false);
+				meterradar.panel.setVisible(false);
+				meterradar.panel_1.setVisible(false);
+				meterradar.panel_2.setVisible(false);
+				meterradar.panel_3.setVisible(false);
+				meterradar.panel_4.setVisible(false);
+				meterradar.panel_5.setVisible(false);
 				
-				Frame.layeredPane.setVisible(false);
+				meterradar.layeredPane.setVisible(false);
 				Frame.txtVehicleNumber.setVisible(false);
 				Frame.txtOwnersName.setVisible(false);
 				Frame.txtRcAddress.setVisible(false);
@@ -218,7 +228,7 @@ public class buttons {
 				sosbtns.callbtn7.setVisible(false);
 				sosbtns.callbtn8.setVisible(false);
 				sosbtns.callbtn9.setVisible(false);
-				Frame.graphhold.setVisible(false);
+				//graph.graphhold.setVisible(false);
 				Frame.callog.setVisible(false);
 				Frame.txtmsg.setVisible(false);
 				Frame.txtcall.setVisible(false);
@@ -233,6 +243,12 @@ public class buttons {
 				videoplay.mannualplay.setVisible(false);
 				 ptzbtns.txtptzstate.setVisible(true);
 				 ptzbtns.toggleButton.setVisible(true);
+				 canvas.campanel1p.setVisible(false);
+				 canvas.campanel2p.setVisible(false);
+				 canvas.campanel3p.setVisible(false);
+				 canvas.campanel4p.setVisible(false);
+				 canvas.campanel5p.setVisible(false);
+				 togglebtn.camtog.setVisible(false);
 				
 				  	
 				  
@@ -274,15 +290,15 @@ public class buttons {
 			public void actionPerformed(ActionEvent e)
 			{ 
 				
-				Frame.panel.setVisible(true);
-				Frame.panel_1.setVisible(true);
-				Frame.panel_2.setVisible(true);
-				Frame.panel_3.setVisible(true);
-				Frame.panel_4.setVisible(true);
-				Frame.panel_5.setVisible(true);
+				meterradar.panel.setVisible(true);
+				meterradar.panel_1.setVisible(true);
+				meterradar.panel_2.setVisible(true);
+				meterradar.panel_3.setVisible(true);
+				meterradar.panel_4.setVisible(true);
+				meterradar.panel_5.setVisible(true);
 				
 				
-				Frame.layeredPane.setVisible(true);
+				meterradar.layeredPane.setVisible(true);
 				
 				Frame.txtVehicleNumber.setVisible(false);
 				Frame.txtOwnersName.setVisible(false);
@@ -347,8 +363,8 @@ public class buttons {
 				sosbtns.callbtn8.setVisible(false);
 				sosbtns.callbtn9.setVisible(false);
 
-				Frame.graphhold.setBounds(740, 374, 352, 272);
-				Frame.graphhold.setVisible(true);
+				//graph.graphhold.setBounds(740, 374, 352, 272);
+				//graph.graphhold.setVisible(true);
 				Frame.callog.setVisible(false);
 				Frame.msglog.setVisible(false);
 				Frame.txtmsg.setVisible(false);
@@ -363,6 +379,12 @@ public class buttons {
 				videoplay.mannualplay.setVisible(false);
 				 ptzbtns.txtptzstate.setVisible(false);
 				 ptzbtns.toggleButton.setVisible(false);
+				 canvas.campanel1p.setVisible(false);
+				 canvas.campanel2p.setVisible(false);
+				 canvas.campanel3p.setVisible(false);
+				 canvas.campanel4p.setVisible(false);
+				 canvas.campanel5p.setVisible(false);
+				 togglebtn.camtog.setVisible(false);
 			}
 		});
 		btnIdentification.setBounds(1145, 174, 126, 40);
@@ -396,13 +418,13 @@ public class buttons {
 			
 			public void actionPerformed(ActionEvent e) { 
 				
-				Frame.panel.setVisible(false);
-				Frame.panel_1.setVisible(false);
-				Frame.panel_2.setVisible(false);
-				Frame.panel_3.setVisible(false);
-				Frame.panel_4.setVisible(false);
-				Frame.panel_5.setVisible(false);
-				Frame.layeredPane.setVisible(false);
+				meterradar.panel.setVisible(false);
+				meterradar.panel_1.setVisible(false);
+				meterradar.panel_2.setVisible(false);
+				meterradar.panel_3.setVisible(false);
+				meterradar.panel_4.setVisible(false);
+				meterradar.panel_5.setVisible(false);
+				meterradar.layeredPane.setVisible(false);
 				Frame.txtVehicleNumber.setVisible(false);
 				Frame.txtOwnersName.setVisible(false);
 				Frame.txtRcAddress.setVisible(false);
@@ -446,7 +468,7 @@ public class buttons {
 				Frame.soslog.setVisible(false);
 				Frame.txtsoslog.setVisible(false);
 				Frame.hospital.setVisible(false);
-				Frame.graphhold.setVisible(false);
+			//	graph.graphhold.setVisible(false);
 				Frame.callog.setVisible(false);
 				Frame.msglog.setVisible(false);
 				Frame.txtmsg.setVisible(false);
@@ -479,6 +501,12 @@ public class buttons {
 				videoplay.mannualplay.setVisible(false);
 				 ptzbtns.txtptzstate.setVisible(false);
 				 ptzbtns.toggleButton.setVisible(false);
+				 canvas.campanel1p.setVisible(false);
+				 canvas.campanel2p.setVisible(false);
+				 canvas.campanel3p.setVisible(false);
+				 canvas.campanel4p.setVisible(false);
+				 canvas.campanel5p.setVisible(false);
+				 togglebtn.camtog.setVisible(false);
 					
 			}
 		});    
@@ -522,14 +550,14 @@ public class buttons {
 			canvas.campanel5.setVisible(true);
 			canvas.campanel1.setVisible(true);
 			
-			Frame.panel.setVisible(false);
-			Frame.panel_1.setVisible(false);
-			Frame.panel_2.setVisible(false);
-			Frame.panel_3.setVisible(false);
-			Frame.panel_4.setVisible(false);
-			Frame.panel_5.setVisible(false);
+			meterradar.panel.setVisible(false);
+			meterradar.panel_1.setVisible(false);
+			meterradar.panel_2.setVisible(false);
+			meterradar.panel_3.setVisible(false);
+			meterradar.panel_4.setVisible(false);
+			meterradar.panel_5.setVisible(false);
 	
-			Frame.layeredPane.setVisible(false);
+			meterradar.layeredPane.setVisible(false);
 			
 				//txtVehicleNumber.setVisible(true);
 			//txtOwnersName.setVisible(true);
@@ -586,7 +614,7 @@ public class buttons {
 			sosbtns.callbtn7.setVisible(false);
 			sosbtns.callbtn8.setVisible(false);
 			sosbtns.callbtn9.setVisible(false);
-			Frame.graphhold.setVisible(false);
+			//graph.graphhold.setVisible(false);
 			Frame.callog.setVisible(false);
 			Frame.msglog.setVisible(false);
 			Frame.txtmsg.setVisible(false);
@@ -600,6 +628,12 @@ public class buttons {
 			videoplay.mannualplay.setVisible(false);
 			 ptzbtns.txtptzstate.setVisible(false);
 			 ptzbtns.toggleButton.setVisible(false);
+			 canvas.campanel1p.setVisible(false);
+			 canvas.campanel2p.setVisible(false);
+			 canvas.campanel3p.setVisible(false);
+			 canvas.campanel4p.setVisible(false);
+			 canvas.campanel5p.setVisible(false);
+			 togglebtn.camtog.setVisible(false);
 		}
 	});
 	btnIVehicleID.setBounds(1145, 276, 126, 40);
@@ -649,14 +683,14 @@ public class buttons {
 			canvas.campanel4.setVisible(true);
 			canvas.campanel3.setVisible(true);
 			canvas.campanel5.setVisible(true);
-			Frame.panel.setVisible(false);
-			Frame.panel_1.setVisible(false);
-			Frame.panel_2.setVisible(false);
-			Frame.panel_3.setVisible(false);
-			Frame.panel_4.setVisible(false);
-			Frame.panel_5.setVisible(false);
+			meterradar.panel.setVisible(false);
+			meterradar.panel_1.setVisible(false);
+			meterradar.panel_2.setVisible(false);
+			meterradar.panel_3.setVisible(false);
+			meterradar.panel_4.setVisible(false);
+			meterradar.panel_5.setVisible(false);
 		
-			Frame.layeredPane.setVisible(false);
+			meterradar.layeredPane.setVisible(false);
 			Frame.txtVehicleNumber.setVisible(false);
 			Frame.txtOwnersName.setVisible(false);
 			Frame.txtRcAddress.setVisible(false);
@@ -700,7 +734,7 @@ public class buttons {
 			sosbtns.callbtn7.setVisible(false);
 			sosbtns.callbtn8.setVisible(false);
 			sosbtns.callbtn9.setVisible(false);
-			Frame.graphhold.setVisible(false);
+			//graph.graphhold.setVisible(false);
 			Frame.callog.setVisible(false);
 			Frame.msglog.setVisible(false);
 			Frame.txtmsg.setVisible(false);
@@ -714,6 +748,12 @@ public class buttons {
 			videoplay.mannualplay.setVisible(true);
 			 ptzbtns.txtptzstate.setVisible(false);
 			 ptzbtns.toggleButton.setVisible(false);
+			 canvas.campanel1p.setVisible(false);
+			 canvas.campanel2p.setVisible(false);
+			 canvas.campanel3p.setVisible(false);
+			 canvas.campanel4p.setVisible(false);
+			 canvas.campanel5p.setVisible(false);
+			 togglebtn.camtog.setVisible(false);
 		}
 	});    
 	evidence.setBounds(1145, 327, 126, 40);
@@ -747,13 +787,13 @@ public class buttons {
 		canvas.campanel3.setVisible(false);
 		canvas.campanel5.setVisible(false);
 		canvas.campanel1.setVisible(false);
-		Frame.panel.setVisible(false);
-		Frame.panel_1.setVisible(false);
-		Frame.panel_2.setVisible(false);
-		Frame.panel_3.setVisible(false);
-		Frame.panel_4.setVisible(false);
-		Frame.panel_5.setVisible(false);
-		Frame.layeredPane.setVisible(false);
+		meterradar.panel.setVisible(false);
+		meterradar.panel_1.setVisible(false);
+		meterradar.panel_2.setVisible(false);
+		meterradar.panel_3.setVisible(false);
+		meterradar.panel_4.setVisible(false);
+		meterradar.panel_5.setVisible(false);
+		meterradar.layeredPane.setVisible(false);
 		Frame.txtVehicleNumber.setVisible(false);
 		//txtOwnersName.setVisible(false);
 	//	txtRcAddress.setVisible(false);
@@ -798,7 +838,7 @@ public class buttons {
 		sosbtns.callbtn7.setVisible(true);
 		sosbtns.callbtn8.setVisible(true);
 		sosbtns.callbtn9.setVisible(true);
-		Frame.graphhold.setVisible(false);
+		//graph.graphhold.setVisible(false);
 		Frame.callog.setVisible(true);
 		Frame.msglog.setVisible(true);
 		Frame.txtmsg.setVisible(true);
@@ -812,6 +852,12 @@ public class buttons {
 		videoplay.mannualplay.setVisible(false);
 		 ptzbtns.txtptzstate.setVisible(false);
 		 ptzbtns.toggleButton.setVisible(false);
+		 canvas.campanel1p.setVisible(false);
+		 canvas.campanel2p.setVisible(false);
+		 canvas.campanel3p.setVisible(false);
+		 canvas.campanel4p.setVisible(false);
+		 canvas.campanel5p.setVisible(false);
+		 togglebtn.camtog.setVisible(false);
 	  }
 });  
        sos.setFont(new Font("Bahnschrift", Font.PLAIN, 15));

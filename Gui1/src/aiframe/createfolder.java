@@ -1,7 +1,7 @@
 package aiframe;
 import java.io.File;
 
-import aiframe.detectOS.OSType;
+
 public class createfolder {
 	public static File rleft;
 	public static File rright;
@@ -60,7 +60,7 @@ public class createfolder {
 	  }
 	
 	 
-	 if (detectOS.OS.indexOf("nux") >= 0)   //if OS is linux
+	/* if (detectOS.OS.indexOf("nux") >= 0)   //if OS is linux
 	 {
 		 rleft = new File("Saved Videos/RAW/Left Camera");
 		  if(!rleft.exists()) {rleft.mkdirs();}
@@ -101,7 +101,7 @@ public class createfolder {
 		  
 		   pptz = new File("/Saved Videos/PROCESSED/PTZ Camera");
 		  if(!pptz.exists()) {pptz.mkdirs();} 
-	 }
+	 }  */
 	 
 	 
 	 }

@@ -1,32 +1,53 @@
 package aiframe;
-import java.awt.Color;
+import java.awt.Color;import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+
 import aiframe.Frame;
-
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import com.github.sarxos.webcam.WebcamPanel;
+import javax.swing.JLabel;
 
-import aiframe.webcam;
+import com.xuggle.mediatool.IMediaListener;
+import com.xuggle.mediatool.IMediaReader;
+import com.xuggle.mediatool.MediaListenerAdapter;
+import com.xuggle.mediatool.ToolFactory;
+import com.xuggle.mediatool.event.IVideoPictureEvent;
+
 
 public class canvas {
-	public static WebcamPanel campanel1;
-	public static WebcamPanel campanel2;
-	public static WebcamPanel campanel3;
-	public static WebcamPanel campanel4;
-	public static WebcamPanel campanel5;
+	public static JLabel campanel1;
+	public static JLabel campanel2;
+	public static JLabel campanel3;
+	public static JLabel campanel4;
+	public static JLabel campanel5;
+	
+	public static JLabel campanel1p;
+	public static JLabel campanel2p;
+	public static JLabel campanel3p;
+	public static JLabel campanel4p;
+	public static JLabel campanel5p;
+	
+	
+	
+	
+
+	
+	
 	public void canvasmain() 
-	{
-		 campanel1 = new WebcamPanel(webcam.cam1);    //PTZ Cam
+	{   
+		
+		
+	
+		
+		 campanel1 = new JLabel();    //PTZ Cam
 		campanel1.setBackground(Color.DARK_GRAY);
 		campanel1.setBounds(23, 374, 352, 272); 
 		campanel1.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
-		campanel1.setImageSizeDisplayed(true);               //new
-		campanel1.setFPSDisplayed(true);                        //new
-		campanel1.setMirrored(true);
 	    Frame.frame.getContentPane().add(campanel1);	
-		campanel1.addMouseListener(new MouseAdapter() 
+		/*campanel1.addMouseListener(new MouseAdapter() 
 			{
 				public void mouseClicked(MouseEvent e)
 				{
@@ -39,18 +60,18 @@ public class canvas {
 					campanel1frame.getContentPane().add(campanel1);
 					
 				}
-			});
+			});   */
+		
+		
+		
 			
 			
-		    campanel2 = new WebcamPanel(webcam.cam2);     //Right Cam
+		    campanel2 = new JLabel();     //Right Cam
 		    campanel2.setBackground(Color.DARK_GRAY);
 		    campanel2.setBounds(739, 68, 352, 272);
 		    campanel2.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
-		    campanel2.setMirrored(true);
-		    campanel2.setImageSizeDisplayed(true);               //new
-			campanel2.setFPSDisplayed(true);  
-			Frame.frame.getContentPane().add(campanel2);
-		    campanel2.addMouseListener(new MouseAdapter() 
+		    Frame.frame.getContentPane().add(campanel2);
+		   /* campanel2.addMouseListener(new MouseAdapter() 
 			{
 				public void mouseClicked(MouseEvent e)
 				{
@@ -64,18 +85,15 @@ public class canvas {
 					campanel2frame.getContentPane().add(campanel2);
 					
 				}
-			});
+			});  */
 		    
 			
-			 campanel3 = new WebcamPanel(webcam.cam3);   //Front Cam
+			 campanel3 = new JLabel();   //Front Cam
 			 campanel3.setBackground(Color.DARK_GRAY);
-			 campanel3.setBounds(381, 68, 352, 272);
 			 campanel3.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
-			 campanel3.setMirrored(true);
-			 campanel3.setImageSizeDisplayed(true);               //new
-				campanel3.setFPSDisplayed(true);  
-			Frame.frame.getContentPane().add(campanel3);
-			 campanel3.addMouseListener(new MouseAdapter() 
+			 campanel3.setBounds(381, 68, 352, 272);
+			 Frame.frame.getContentPane().add(campanel3);
+		/*	 campanel3.addMouseListener(new MouseAdapter() 
 			{
 				public void mouseClicked(MouseEvent e)
 				{
@@ -88,20 +106,17 @@ public class canvas {
 					campanel3frame.getContentPane().add(campanel3);
 					
 				}
-			});
+			});  */
 			
 			
 			
 			
-			 campanel4 = new WebcamPanel(webcam.cam4);    //Left Cam
+			 campanel4 = new JLabel();    //Left Cam
 			 campanel4.setBounds(23, 68, 352, 272);
 			 campanel4.setBackground(Color.DARK_GRAY);
 			 campanel4.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
-			 campanel4.setMirrored(true);
-			 campanel4.setImageSizeDisplayed(true);               //new
-				campanel4.setFPSDisplayed(true);  
 			Frame.frame.getContentPane().add(campanel4);
-			 campanel4.addMouseListener(new MouseAdapter() 
+		/*	 campanel4.addMouseListener(new MouseAdapter() 
 			{
 				public void mouseClicked(MouseEvent e)
 				{
@@ -114,18 +129,15 @@ public class canvas {
 					campanel4frame.getContentPane().add(campanel4);
 					
 				}
-			});
+			});   */
 			
 		
-		 campanel5 = new WebcamPanel(webcam.cam5);   //Back Cam
+		 campanel5 = new JLabel();   //Back Cam
 		 campanel5.setBackground(Color.DARK_GRAY);
 		 campanel5.setBounds(381, 374, 352, 272);
 		 campanel5.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
-		 campanel5.setMirrored(true);
-		 campanel5.setImageSizeDisplayed(true);               //new
-			campanel5.setFPSDisplayed(true);  
 		Frame.frame.getContentPane().add(campanel5);
-		campanel5.addMouseListener(new MouseAdapter() 
+		/*campanel5.addMouseListener(new MouseAdapter() 
 		{
 			
 			public void mouseClicked(MouseEvent e)
@@ -139,7 +151,52 @@ public class canvas {
 				campanel5frame.getContentPane().add(campanel5);
 			
 			}
-		});
+		});  */
+		
+		
+		    campanel1p = new JLabel();    //PTZ Cam processed
+			campanel1p.setBackground(Color.DARK_GRAY);
+			campanel1p.setVisible(false);
+			campanel1p.setBounds(23, 374, 352, 272); 
+			campanel1p.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+		    Frame.frame.getContentPane().add(campanel1p);	
+		    
+		    
+		    campanel2p = new JLabel();     //Right Cam processed
+		    campanel2p.setBackground(Color.DARK_GRAY);
+		    campanel2p.setVisible(false);
+		    campanel2p.setBounds(739, 68, 352, 272);
+		    campanel2p.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+		    Frame.frame.getContentPane().add(campanel2p);
+		    
+		    
+		    campanel3p = new JLabel();   //Front Cam processed
+			 campanel3p.setBackground(Color.DARK_GRAY);
+			 campanel3p.setVisible(false);
+			 campanel3p.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+			 campanel3p.setBounds(381, 68, 352, 272);
+			 Frame.frame.getContentPane().add(campanel3p);
+			 
+			 
+			 campanel4p = new JLabel();    //Left Cam processed
+			 campanel4p.setBounds(23, 68, 352, 272);
+			 campanel4p.setBackground(Color.DARK_GRAY);
+			 campanel4p.setVisible(false);
+			 campanel4p.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+			Frame.frame.getContentPane().add(campanel4p);
+			
+			
+			campanel5p = new JLabel();   //Back Cam processed
+			 campanel5p.setBackground(Color.DARK_GRAY);
+			 campanel5p.setVisible(false);
+			 campanel5p.setBounds(381, 374, 352, 272);
+			 campanel5p.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+			Frame.frame.getContentPane().add(campanel5p);
+			
+			
+			
+			 
+			 
 		 
 	}
 
