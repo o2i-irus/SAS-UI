@@ -231,7 +231,7 @@ public void main()
 						                     try { 
 						                    	 //emp7.playMedia(s + port + "/cameraprocessed1");         //right cam processed
 						                    	// emp7.playMedia(s + port + "/cameraprocessed0");
-						                    	// emp7.playMedia("C:\\Users\\hp\\Downloads\\video\\pro2.mp4");
+						                    	
 						                    	// emp7.setAudioOutput(null);
 						                    	//  emp7.setRepeat(true);
 						                     } catch (Exception e) {e.printStackTrace();}

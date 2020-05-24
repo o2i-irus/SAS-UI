@@ -4,35 +4,18 @@ package aiframe;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
+
 
 import javax.swing.*;
 
-import com.sun.jna.Native;
-import com.sun.jna.NativeLibrary;
+
 
 import java.awt.Color;
-import java.awt.Dimension;
+
 import java.awt.Canvas;
 import java.net.URL;
 
-//import javafx.scene.media.MediaPlayer;
-import aiframe.Frame;
-import aiframe.canvas;
-import aiframe.clock;
-import aiframe.cpuload;
-import aiframe.radar;
-import aiframe.buttons;
-import aiframe.sosbtns;
-import uk.co.caprica.vlcj.binding.LibVlc;
-import uk.co.caprica.vlcj.player.MediaPlayerFactory;
-import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
-import uk.co.caprica.vlcj.player.embedded.videosurface.CanvasVideoSurface;
-import uk.co.caprica.vlcj.runtime.RuntimeUtil;
-import aiframe.RTSPstream;
+
 
 
 public class Frame {
